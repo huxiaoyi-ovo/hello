@@ -1,0 +1,20 @@
+name: Good Morning Automation
+
+on:
+  schedule:
+    # GitHub Actions schedules use UTC. 22:00 UTC is 06:00 the next day in Asia/Shanghai.
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+jobs:
+  send-good-morning:
+    runs-on: ubuntu-latest
+    env:
+      GOOD_MORNING_MESSAGE: ${{ vars.GOOD_MORNING_MESSAGE || '早安' }}
+      GOOD_MORNING_WEBHOOK_URL: ${{ secrets.GOOD_MORNING_WEBHOOK_URL }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Send good morning message
+        run: python scripts/send_good_morning.py
