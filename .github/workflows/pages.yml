@@ -1,45 +1,13 @@
-name: Deploy static site to GitHub Pages
+name: Disabled custom Pages workflow
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  notice:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Prepare static site
+      - name: Deployment disabled
         run: |
-          rm -rf _site
-          mkdir -p _site
-          cp index.html _site/index.html
-          cp stories.js _site/stories.js
-          touch _site/.nojekyll
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload static site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "_site"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          echo "Custom GitHub Actions deployment is disabled."
+          echo "Use GitHub Pages Settings -> Build and deployment -> Deploy from a branch -> main / root."
