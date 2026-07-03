@@ -86,6 +86,21 @@ const DIGEST_MARKS={
   ]
 };
 (function(){
+  function injectStyles(){
+    if(document.getElementById('editorial-mark-styles'))return;
+    const style=document.createElement('style');
+    style.id='editorial-mark-styles';
+    style.textContent=`
+      .digest-reader.editorial-marks{font-family:var(--serif);font-size:16px;line-height:1.94;color:#241e16;background:linear-gradient(180deg,rgba(255,253,248,.94),rgba(246,239,225,.70));border-left:4px solid var(--gold);border-radius:15px;padding:17px 18px;box-shadow:inset 0 0 0 1px rgba(216,205,185,.58)}
+      [data-theme="night"] .digest-reader.editorial-marks{color:#efe7d7;background:rgba(30,27,22,.80);box-shadow:inset 0 0 0 1px rgba(90,79,60,.45)}
+      .digest-reader.editorial-marks .digest-lede{font-size:18px;line-height:1.66;font-weight:900;color:#11100e;border-bottom:1px solid rgba(184,129,47,.28);padding-bottom:11px;margin:0 0 12px;letter-spacing:-.012em}
+      [data-theme="night"] .digest-reader.editorial-marks .digest-lede{color:#fff3d8}
+      .digest-reader.editorial-marks .digest-body p{margin:0 0 .76em}.digest-reader.editorial-marks .digest-body p:last-child{margin-bottom:0}
+      .ed-strong{font-weight:900;color:#11100e}.ed-mark{font-weight:800;background:linear-gradient(transparent 58%,rgba(225,185,107,.42) 0);padding:0 .08em}.ed-underline{font-weight:750;text-decoration:underline;text-decoration-color:rgba(31,78,121,.55);text-decoration-thickness:1.5px;text-underline-offset:.18em}.ed-data{font-family:var(--mono);font-weight:850;color:#6b3f0f;background:rgba(184,129,47,.15);border:1px solid rgba(184,129,47,.22);border-radius:7px;padding:.02em .25em;white-space:nowrap}
+      [data-theme="night"] .ed-strong{color:#fff}[data-theme="night"] .ed-mark{background:linear-gradient(transparent 58%,rgba(225,185,107,.26) 0)}[data-theme="night"] .ed-data{color:#ffe0a4}
+    `;
+    document.head.appendChild(style);
+  }
   function esc(s){return String(s||'').replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
   function cssEscape(s){return String(s).replace(/(["\\])/g,'\\$1');}
   function applyOne(html,phrase,type){
@@ -105,6 +120,7 @@ const DIGEST_MARKS={
     return `<div class="digest-reader editorial-marks"><p class="digest-lede">${leadHtml}</p><div class="digest-body">${paragraphs}</div></div>`;
   }
   function run(){
+    injectStyles();
     if(typeof STORIES==='undefined') return;
     STORIES.forEach(function(s){
       const article=document.querySelector(`.story-row[data-id="${cssEscape(s.id)}"]`);
