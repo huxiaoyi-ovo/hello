@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>AIHOT Focus Brief｜移动端交互样例</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#111827; --muted:#6b7280;
+  --line:#e5e7eb; --blue:#2563eb; --blue2:#dbeafe; --green:#059669;
+  --amber:#d97706; --red:#dc2626; --chip:#eef2ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  line-height:1.55;
+}
+header{
+  padding:24px 18px 18px;
+  background:linear-gradient(135deg,#111827,#1e3a8a 58%,#2563eb);
+  color:white; border-bottom-left-radius:26px; border-bottom-right-radius:26px;
+  position:sticky; top:0; z-index:10; box-shadow:0 10px 30px rgba(17,24,39,.18);
+}
+.kicker{font-size:12px; opacity:.82; letter-spacing:.08em; text-transform:uppercase}
+h1{font-size:25px; margin:7px 0 8px; line-height:1.2}
+.subtitle{font-size:14px; opacity:.86}
+.tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+.tag{
+  border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.12);
+  color:#fff; border-radius:999px; padding:6px 10px; font-size:12px;
+}
+main{padding:16px; max-width:860px; margin:auto}
+.toolbar{
+  display:flex; gap:8px; overflow:auto; padding:2px 0 14px; position:sticky; top:126px;
+  background:linear-gradient(var(--bg) 75%,rgba(246,248,251,0)); z-index:9;
+}
+button.filter{
+  border:1px solid var(--line); background:white; color:var(--ink);
+  border-radius:999px; padding:8px 11px; font-size:13px; white-space:nowrap;
+}
+button.filter.active{background:var(--blue); color:white; border-color:var(--blue)}
+.section-title{font-size:17px; margin:18px 0 10px; display:flex; align-items:center; gap:8px}
+.grid{display:grid; grid-template-columns:1fr; gap:12px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:18px; padding:14px;
+  box-shadow:0 6px 18px rgba(17,24,39,.05);
+}
+.card-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+.badges{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px}
+.badge{font-size:11px; border-radius:999px; padding:4px 8px; background:var(--chip); color:#3730a3}
+.badge.high{background:#fee2e2;color:#991b1b}
+.badge.mid{background:#fef3c7;color:#92400e}
+.badge.low{background:#dcfce7;color:#166534}
+.card h3{font-size:17px; margin:0 0 8px}
+.card p{margin:8px 0; font-size:14px}
+.meta{font-size:12px; color:var(--muted)}
+details{margin-top:8px}
+summary{cursor:pointer; color:var(--blue); font-weight:650; font-size:14px}
+.matrix{
+  display:grid; grid-template-columns:1fr; gap:10px;
+}
+.row{
+  background:white; border:1px solid var(--line); border-radius:16px; padding:12px;
+}
+.row b{display:block; margin-bottom:5px}
+.actions li{margin:8px 0}
+.footer{color:var(--muted); text-align:center; padding:26px 10px 36px; font-size:12px}
+.hidden{display:none}
+@media (min-width:720px){
+  h1{font-size:34px}
+  main{padding:22px}
+  .grid{grid-template-columns:1fr 1fr}
+  .matrix{grid-template-columns:1fr 1fr}
+  header{position:relative}
+  .toolbar{top:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">AIHOT Focus Brief · Sample Web Edition</div>
+  <h1>具身智能 / 大佬观点 / 论文研究</h1>
+  <div class="subtitle">移动端交互样例｜面向你的长期 robotics & embodied AI 研究路线</div>
+  <div class="tags">
+    <span class="tag">Embodied AI</span><span class="tag">Robot Learning</span>
+    <span class="tag">RA-L / ICRA / IROS</span><span class="tag">Capability Roadmap</span>
+  </div>
+</header>
+
+<main>
+  <nav class="toolbar" aria-label="filters">
+    <button class="filter active" data-filter="all">全部</button>
+    <button class="filter" data-filter="embodied">具身智能</button>
+    <button class="filter" data-filter="opinion">大佬观点</button>
+    <button class="filter" data-filter="paper">论文研究</button>
+    <button class="filter" data-filter="career">能力/招聘</button>
+  </nav>
+
+  <h2 class="section-title">① 今日重点 Brief Cards</h2>
+  <section class="grid" id="cards">
+    <article class="card" data-cat="embodied career">
+      <div class="badges"><span class="badge high">High Priority</span><span class="badge">Embodied AI</span></div>
+      <h3>宇树等 humanoid/legged robotics 公司进入资本化与规模化验证阶段</h3>
+      <p>行业从 demo 转向 mass production、供应链、可靠性和部署证据。对研究者来说，real-robot validation 的价值继续上升。</p>
+      <details><summary>展开：对你意味着什么</summary>
+        <p><b>Research implication：</b>你更适合走 real-robot embodied autonomy，而不是纯模型追热点。</p>
+        <p><b>实验条件匹配：</b>六足机器人 + depth sensing + cluttered navigation 可以形成稳定系统论文路线。</p>
+      </details>
+    </article>
+
+    <article class="card" data-cat="opinion career">
+      <div class="badges"><span class="badge mid">Medium-High</span><span class="badge">Big-shot Opinion</span></div>
+      <h3>Agent 系统工程从 Prompt Engineering 走向 Harness / AIWare Engineering</h3>
+      <p>可用 Agent 依赖 router、memory、context compression、tool orchestration 和 cost control。</p>
+      <details><summary>展开：研究方向映射</summary>
+        <p>机器人系统同样需要分层架构：high-level intent + low-level safety/controller。未来可以做 command-space router 或 risk-aware embodied agent。</p>
+      </details>
+    </article>
+
+    <article class="card" data-cat="paper embodied">
+      <div class="badges"><span class="badge high">High Priority</span><span class="badge">Paper</span></div>
+      <h3>VLM / VLA 的鲁棒性问题仍是具身智能闭环控制风险</h3>
+      <p>VLM 在视觉推理、CoT faithful reasoning、误导上下文下仍可能不稳定。闭环控制不宜完全交给 language reasoning。</p>
+      <details><summary>展开：可发表问题</summary>
+        <p>可以研究：VLM high-level intent + safety-aware local arbitration。该结构比 end-to-end VLA 更符合你现有实验平台。</p>
+      </details>
+    </article>
+
+    <article class="card" data-cat="paper">
+      <div class="badges"><span class="badge mid">Medium</span><span class="badge">Research Trend</span></div>
+      <h3>视频 tokenization / long-horizon visual memory 会影响 robot world model</h3>
+      <p>VideoFlexTok 等工作指向更高效的视频表示。对机器人来说，关键是长时序记忆、动作理解和环境变化建模。</p>
+      <details><summary>展开：与你平台的关系</summary>
+        <p>短期不建议硬做 world model；更现实的是 local depth map + short obstacle memory + failure analysis。</p>
+      </details>
+    </article>
+
+    <article class="card" data-cat="paper opinion">
+      <div class="badges"><span class="badge high">High Priority</span><span class="badge">Arbitration</span></div>
+      <h3>Multi-agent system 暴露“专家意见被平均化”的问题</h3>
+      <p>多个 agent 不一定强于单个专家，关键在 expertise routing 和 conflict resolution。</p>
+      <details><summary>展开：研究启发</summary>
+        <p>这直接支持一个大方向：conflict arbitration。机器人里 Follow/Avoid、goal/safety、semantic/geometric 都需要仲裁机制。</p>
+      </details>
+    </article>
+
+    <article class="card" data-cat="career">
+      <div class="badges"><span class="badge high">High Priority</span><span class="badge">Capability</span></div>
+      <h3>头部 robotics 公司能力要求：robot learning + control + deployment</h3>
+      <p>核心能力不是只会训练模型，而是能把 policy、perception、planning、control、ROS/C++/Python 和真机调试串起来。</p>
+      <details><summary>展开：你的补齐路线</summary>
+        <p>优先级：ROS2/Nav2 → C++ 工程 → MPC/CBF/TEB/DWA → RL sim-to-real → data pipeline & telemetry。</p>
+      </details>
+    </article>
+  </section>
+
+  <h2 class="section-title">② Research Direction Matrix</h2>
+  <section class="matrix">
+    <div class="row"><b>最稳主线</b>Risk-aware embodied navigation under perception-action conflict</div>
+    <div class="row"><b>可做平台</b>六足机器人、D435i/depth map、target following、cluttered environment、sim + real tests</div>
+    <div class="row"><b>可发论文形态</b>RA-L 系统论文、IROS/ICRA workshop、robotics journal 扩展版、benchmark/evaluation paper</div>
+    <div class="row"><b>不要盲追</b>端到端 humanoid VLA、大规模数据闭环、昂贵 manipulation benchmark</div>
+  </section>
+
+  <h2 class="section-title">③ Capability Gap Matrix</h2>
+  <section class="matrix">
+    <div class="row"><b>短期必补</b>Baseline credibility：DWA / TEB / MPC / CBF-QP、统计检验、failure taxonomy</div>
+    <div class="row"><b>中期必补</b>ROS2、C++、experiment automation、log analysis、real-robot debugging</div>
+    <div class="row"><b>长期加分</b>RL sim-to-real、VLA/VLM high-level planning、dataset/benchmark construction</div>
+    <div class="row"><b>产业映射</b>Robot learning engineer、robotics software engineer、system integration / validation engineer</div>
+  </section>
+
+  <h2 class="section-title">④ What should I do next</h2>
+  <section class="card">
+    <ol class="actions">
+      <li>把现有平台整理成 <b>repeatable evaluation benchmark</b>：场景、指标、失败类型、日志模板。</li>
+      <li>补一个可信的 local planner baseline：DWA / TEB / MPC / CBF-QP 至少选一条做扎实。</li>
+      <li>每周读 2 篇 embodied AI / robot learning 论文，只提炼：可复现实验、可迁移到六足平台的点。</li>
+      <li>工程侧开始补 ROS2 + C++ + experiment automation，把“会跑实验”升级为“会搭系统”。</li>
+    </ol>
+  </section>
+
+  <div class="footer">Mobile-first interactive brief · Chinese + English technical terms preserved</div>
+</main>
+
+<script>
+const buttons = document.querySelectorAll('.filter');
+const cards = document.querySelectorAll('.card[data-cat]');
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(card=>{
+      const cats = card.dataset.cat.split(' ');
+      card.classList.toggle('hidden', !(f==='all' || cats.includes(f)));
+    });
+  });
+});
+</script>
+</body>
+</html>
