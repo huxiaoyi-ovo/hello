@@ -1,6 +1,6 @@
 {
   "schema": "drhu.preference-profile.v1",
-  "updatedAt": "2026-07-04T00:00:00+09:00",
+  "updatedAt": "2026-07-04T06:20:00+09:00",
   "owner": "DR.Hu",
   "profilePurpose": "Low-sensitivity preference profile for daily AIHOT and robotics research briefing generation.",
   "primaryFocus": [
@@ -12,6 +12,9 @@
   ],
   "topTopics": [
     { "topic": "embodied", "weight": 10 },
+    { "topic": "source-first-analysis", "weight": 10 },
+    { "topic": "premium-editorial-voice", "weight": 10 },
+    { "topic": "high-level-strategic-view", "weight": 10 },
     { "topic": "real-robot", "weight": 9 },
     { "topic": "robot-learning", "weight": 9 },
     { "topic": "deployment", "weight": 8 },
@@ -26,19 +29,58 @@
     { "topic": "generic AI product launch", "weight": 1 },
     { "topic": "financing-only news", "weight": 1 },
     { "topic": "celebrity hype", "weight": 1 },
-    { "topic": "pure LLM leaderboard without robotics implication", "weight": 2 }
+    { "topic": "pure LLM leaderboard without robotics implication", "weight": 2 },
+    { "topic": "AI-like bullet-point summaries", "weight": 0 },
+    { "topic": "template-heavy writing", "weight": 0 },
+    { "topic": "shallow personal advice", "weight": 0 }
   ],
   "likedSignals": [
     "future research directions based on current experimental platform",
     "head robotics company hiring capability requirements",
     "papers that can inspire real-robot experiments",
-    "embodied AI system architecture and deployment lessons"
+    "embodied AI system architecture and deployment lessons",
+    "source-first analysis based on original papers, company blogs, GitHub repos, official posts, job descriptions, or primary reports",
+    "high-level strategic interpretation similar to foreign paid research newsletters and analyst memos",
+    "writing with editorial taste: clear thesis, selective evidence, explicit judgment, and memorable prose"
   ],
   "dislikedSignals": [
     "generic AI news with no robotics implication",
     "product release without research or capability relevance",
-    "overly PCR-Net-only analysis"
+    "overly PCR-Net-only analysis",
+    "AI-style checklist language",
+    "机械的总结、映射、建议三段式",
+    "empty motivational language",
+    "generic consultant tone without original judgment"
   ],
+  "editorialVoice": {
+    "referenceStyle": [
+      "foreign paid research newsletters",
+      "premium finance and technology subscription media",
+      "strategy memo written by a private analyst",
+      "long-form editorial intelligence brief"
+    ],
+    "principles": [
+      "Lead with a sharp thesis, not a generic summary.",
+      "Write from altitude: identify the structural shift behind the news.",
+      "Use fewer bullets and more argued paragraphs when depth is needed.",
+      "Separate fact, claim, incentive, and implication.",
+      "Be selective; ignore low-signal noise even if it is trending.",
+      "Give explicit judgment: why it matters, why it may be overhyped, and what changes for the user.",
+      "Use elegant but restrained Chinese prose, preserving English technical terms where they carry technical precision.",
+      "Avoid AI-like phrases, generic transitions, repetitive templates, and shallow encouragement."
+    ],
+    "tone": "calm, literate, strategic, slightly sharp, evidence-aware, with the feeling of a private analyst who knows the user's research trajectory.",
+    "preferredStructure": "Thesis → Source facts → Hidden structure → Personal analyst view → Research/capability consequence → Action.",
+    "avoid": [
+      "这里有几点",
+      "总的来说",
+      "这说明了",
+      "对你来说意味着",
+      "AI味很重的并列分点",
+      "泛泛地说很重要",
+      "没有判断的摘要"
+    ]
+  },
   "generationGuidance": {
     "prioritize": [
       "embodied AI",
@@ -47,14 +89,19 @@
       "ROS2/C++/deployment",
       "credible baselines",
       "RA-L/ICRA/IROS publication strategy",
-      "future research directions based on existing hexapod/depth/target-following platform"
+      "future research directions based on existing hexapod/depth/target-following platform",
+      "source-first analysis",
+      "premium editorial voice",
+      "strategic private analyst perspective"
     ],
     "downrank": [
       "generic AI product launches",
       "financing-only news",
       "celebrity hype",
-      "pure LLM benchmarks without robotics implication"
+      "pure LLM benchmarks without robotics implication",
+      "AI-style bullet summaries",
+      "template-driven writing"
     ],
-    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include research implications and capability roadmap."
+    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include source-first context, evidence-aware interpretation, research implications, capability roadmap, and a private analyst view written with high-level editorial judgment."
   }
 }
