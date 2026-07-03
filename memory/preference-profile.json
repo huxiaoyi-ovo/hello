@@ -1,0 +1,60 @@
+{
+  "schema": "drhu.preference-profile.v1",
+  "updatedAt": "2026-07-04T00:00:00+09:00",
+  "owner": "DR.Hu",
+  "profilePurpose": "Low-sensitivity preference profile for daily AIHOT and robotics research briefing generation.",
+  "primaryFocus": [
+    "embodied intelligence / 具身智能",
+    "robot learning and real-robot deployment",
+    "papers / arXiv / research with actionable experimental implications",
+    "big-shot opinions only when they affect research direction or capability planning",
+    "robotics company capability requirements and skill roadmap"
+  ],
+  "topTopics": [
+    { "topic": "embodied", "weight": 10 },
+    { "topic": "real-robot", "weight": 9 },
+    { "topic": "robot-learning", "weight": 9 },
+    { "topic": "deployment", "weight": 8 },
+    { "topic": "sim-to-real", "weight": 8 },
+    { "topic": "paper", "weight": 7 },
+    { "topic": "control", "weight": 7 },
+    { "topic": "ros2", "weight": 6 },
+    { "topic": "career", "weight": 6 },
+    { "topic": "arbitration", "weight": 6 }
+  ],
+  "downrankTopics": [
+    { "topic": "generic AI product launch", "weight": 1 },
+    { "topic": "financing-only news", "weight": 1 },
+    { "topic": "celebrity hype", "weight": 1 },
+    { "topic": "pure LLM leaderboard without robotics implication", "weight": 2 }
+  ],
+  "likedSignals": [
+    "future research directions based on current experimental platform",
+    "head robotics company hiring capability requirements",
+    "papers that can inspire real-robot experiments",
+    "embodied AI system architecture and deployment lessons"
+  ],
+  "dislikedSignals": [
+    "generic AI news with no robotics implication",
+    "product release without research or capability relevance",
+    "overly PCR-Net-only analysis"
+  ],
+  "generationGuidance": {
+    "prioritize": [
+      "embodied AI",
+      "robot learning",
+      "sim-to-real",
+      "ROS2/C++/deployment",
+      "credible baselines",
+      "RA-L/ICRA/IROS publication strategy",
+      "future research directions based on existing hexapod/depth/target-following platform"
+    ],
+    "downrank": [
+      "generic AI product launches",
+      "financing-only news",
+      "celebrity hype",
+      "pure LLM benchmarks without robotics implication"
+    ],
+    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include research implications and capability roadmap."
+  }
+}
