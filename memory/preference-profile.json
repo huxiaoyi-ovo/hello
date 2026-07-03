@@ -1,6 +1,6 @@
 {
   "schema": "drhu.preference-profile.v1",
-  "updatedAt": "2026-07-04T06:36:00+09:00",
+  "updatedAt": "2026-07-04T06:58:00+09:00",
   "owner": "DR.Hu",
   "profilePurpose": "Low-sensitivity preference profile for daily AIHOT and robotics research briefing generation.",
   "primaryFocus": [
@@ -14,6 +14,8 @@
     { "topic": "embodied", "weight": 10 },
     { "topic": "source-first-analysis", "weight": 10 },
     { "topic": "original-source-digest", "weight": 10 },
+    { "topic": "minimum-500-character-digest", "weight": 10 },
+    { "topic": "single-column-ledger-layout", "weight": 10 },
     { "topic": "premium-editorial-voice", "weight": 10 },
     { "topic": "content-serving-microcopy", "weight": 10 },
     { "topic": "high-level-strategic-view", "weight": 10 },
@@ -32,111 +34,46 @@
     { "topic": "financing-only news", "weight": 1 },
     { "topic": "celebrity hype", "weight": 1 },
     { "topic": "pure LLM leaderboard without robotics implication", "weight": 2 },
-    { "topic": "AI-like bullet-point summaries", "weight": 0 },
-    { "topic": "template-heavy writing", "weight": 0 },
-    { "topic": "self-referential UI labels", "weight": 0 },
-    { "topic": "microcopy that only describes the writing process", "weight": 0 },
+    { "topic": "multi-column-card-grid", "weight": 0 },
     { "topic": "link-only source cards", "weight": 0 },
     { "topic": "shallow source summaries", "weight": 0 },
-    { "topic": "shallow personal advice", "weight": 0 }
+    { "topic": "self-referential UI labels", "weight": 0 },
+    { "topic": "AI-like bullet summaries", "weight": 0 }
   ],
-  "likedSignals": [
-    "future research directions based on current experimental platform",
-    "head robotics company hiring capability requirements",
-    "papers that can inspire real-robot experiments",
-    "embodied AI system architecture and deployment lessons",
-    "source-first analysis based on original papers, company blogs, GitHub repos, official posts, job descriptions, or primary reports",
-    "original-source digest that reconstructs the source's facts, structure, data, methods, claims, evidence chain, and limitations inside the expanded card",
-    "high-level strategic interpretation similar to foreign paid research newsletters and analyst memos",
-    "writing with editorial taste: clear thesis, selective evidence, explicit judgment, and memorable prose",
-    "small text that adds information: source type, date, confidence, technical locus, risk, or consequence"
-  ],
-  "dislikedSignals": [
-    "generic AI news with no robotics implication",
-    "product release without research or capability relevance",
-    "overly PCR-Net-only analysis",
-    "AI-style checklist language",
-    "机械的总结、映射、建议三段式",
-    "empty motivational language",
-    "generic consultant tone without original judgment",
-    "小字只是提示写作规则，而不服务内容",
-    "标签写成 source-first / analyst-grade / personalized 这类自我描述",
-    "展开详情里只有链接，没有把原文内容消化进页面",
-    "只说结论，不交代原文材料本身"
-  ],
+  "layoutRules": {
+    "requiredLayout": "single-column editorial briefing ledger",
+    "desktop": "still single column; no side-by-side cards",
+    "itemShape": "full-width row with left metadata rail and right headline, deck, and in-place expansion",
+    "references": ["FT briefing", "Washington Post story expansion", "Air Mail magazine rhythm", "The Information professional intelligence flow"]
+  },
   "sourceDigestRules": {
-    "purpose": "The expanded detail area should let the user understand the original source without needing to open every link.",
+    "minimumLength": "Every expanded item must include an Original-source digest of at least 500 Chinese characters.",
+    "purpose": "The expanded item should let the user understand the original source without opening every link.",
     "mustInclude": [
-      "a detailed paraphrased reconstruction of the original source content",
-      "the source's main claims and supporting evidence",
-      "important numbers, experimental settings, datasets, robot platforms, company facts, job requirements, or technical mechanisms when available",
-      "what the source explicitly says versus what is inferred",
-      "short direct excerpts only when they are especially diagnostic",
-      "clear citation/source link for every important source"
-    ],
-    "copyrightBoundary": [
-      "Do not reproduce full copyrighted articles, posts, reports, or papers verbatim unless the user provided the text or the license clearly allows it.",
-      "Use detailed paraphrase and structured reconstruction for copyrighted sources.",
-      "Use short quotations sparingly and only when the exact wording matters.",
-      "For user-provided drafts, uploaded files, or the user's own text, full reproduction is allowed when useful.",
-      "For permissively licensed or public-domain material, include more original text only when license and relevance justify it."
-    ],
-    "preferredSectionName": "Original-source digest",
-    "avoid": [
-      "link-only cards",
-      "one-paragraph shallow summaries",
-      "telling the user to open the original source for all important details",
-      "copying long copyrighted passages verbatim"
+      "detailed Chinese reconstruction of source content",
+      "source claims and supporting evidence",
+      "important numbers, settings, platforms, job requirements, methods, datasets, or limitations when available",
+      "clear separation between source facts and analyst inference",
+      "source links for traceability"
     ]
   },
+  "microcopyRules": {
+    "purpose": "Small text must serve the content, not describe the writing process.",
+    "goodUses": [
+      "source type and date",
+      "evidence confidence",
+      "technical locus",
+      "deployment risk",
+      "RA-L evidence chain",
+      "hiring signal"
+    ],
+    "avoid": ["source-first", "analyst-grade", "personalized", "new standard", "editorial upgrade"]
+  },
   "editorialVoice": {
-    "referenceStyle": [
-      "foreign paid research newsletters",
-      "premium finance and technology subscription media",
-      "strategy memo written by a private analyst",
-      "long-form editorial intelligence brief"
-    ],
-    "principles": [
-      "Lead with a sharp thesis, not a generic summary.",
-      "Write from altitude: identify the structural shift behind the news.",
-      "Use fewer bullets and more argued paragraphs when depth is needed.",
-      "Separate fact, claim, incentive, and implication.",
-      "Be selective; ignore low-signal noise even if it is trending.",
-      "Give explicit judgment: why it matters, why it may be overhyped, and what changes for the user.",
-      "Use elegant but restrained Chinese prose, preserving English technical terms where they carry technical precision.",
-      "Avoid AI-like phrases, generic transitions, repetitive templates, and shallow encouragement.",
-      "Every small label, kicker, deck, caption, tag and footnote must serve the reader's understanding of the content, not describe the assistant's workflow."
-    ],
-    "microcopyRules": {
-      "purpose": "Small text must add content-level information, not self-instruction.",
-      "goodUses": [
-        "source type: arXiv paper / company blog / hiring signal / primary interview",
-        "time and freshness: published today / updated this week / older but still structurally relevant",
-        "confidence: official fact / author claim / media report / speculative signal",
-        "technical locus: VLA policy layer / local safety layer / sim-to-real / deployment stack",
-        "reader consequence: changes baseline priority / affects RA-L evidence chain / informs skill roadmap"
-      ],
-      "avoid": [
-        "Source-first",
-        "Analyst-grade",
-        "Personalized",
-        "New Standard",
-        "Editorial upgrade",
-        "Private Analyst View as a decorative label when it adds no content",
-        "any label that sounds like the assistant reminding itself how to write"
-      ]
-    },
-    "tone": "calm, literate, strategic, slightly sharp, evidence-aware, with the feeling of a private analyst who knows the user's research trajectory.",
-    "preferredStructure": "Thesis → Original-source digest → Evidence boundary → Hidden structure → Personal analyst view → Research/capability consequence → Action.",
-    "avoid": [
-      "这里有几点",
-      "总的来说",
-      "这说明了",
-      "对你来说意味着",
-      "AI味很重的并列分点",
-      "泛泛地说很重要",
-      "没有判断的摘要"
-    ]
+    "referenceStyle": ["foreign paid research newsletters", "premium finance and technology editorial memo", "private analyst briefing"],
+    "tone": "calm, literate, strategic, slightly sharp, evidence-aware",
+    "preferredStructure": "Thesis -> Original-source digest over 500 Chinese characters -> evidence boundary -> private judgment -> research and capability consequence -> action",
+    "avoid": ["template-heavy writing", "generic bullet summaries", "empty motivational language"]
   },
   "generationGuidance": {
     "prioritize": [
@@ -146,23 +83,18 @@
       "ROS2/C++/deployment",
       "credible baselines",
       "RA-L/ICRA/IROS publication strategy",
-      "future research directions based on existing hexapod/depth/target-following platform",
-      "source-first analysis",
-      "original-source digest",
-      "premium editorial voice",
-      "content-serving microcopy",
-      "strategic private analyst perspective"
+      "source-first original-source digest",
+      "single-column editorial ledger layout",
+      "private analyst perspective"
     ],
     "downrank": [
       "generic AI product launches",
       "financing-only news",
       "celebrity hype",
       "pure LLM benchmarks without robotics implication",
-      "AI-style bullet summaries",
-      "template-driven writing",
-      "self-referential labels and captions",
-      "link-only source summaries"
+      "multi-column card grid",
+      "link-only summaries"
     ],
-    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include source-first context, original-source digest, evidence-aware interpretation, research implications, capability roadmap, and a private analyst view written with high-level editorial judgment. Small text must be content-serving: source, confidence, technical locus, consequence, or risk."
+    "format": "mobile-first premium editorial briefing ledger; Chinese main text; preserve English technical terms; every expanded item includes a 500+ Chinese character Original-source digest."
   }
 }
