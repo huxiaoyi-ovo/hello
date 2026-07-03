@@ -1,79 +1,76 @@
 {
-  "schema": "drhu.preference-profile.v1",
-  "updatedAt": "2026-07-04T07:26:00+09:00",
+  "schema": "drhu.preference-profile.v2",
+  "updatedAt": "2026-07-04T08:10:00+09:00",
   "owner": "DR.Hu",
-  "profilePurpose": "Low-sensitivity preference profile for daily AIHOT and robotics research briefing generation.",
+  "profilePurpose": "Low-sensitivity preference profile for a global mainstream-media intelligence briefing.",
   "primaryFocus": [
-    "embodied intelligence / 具身智能",
-    "robot learning and real-robot deployment",
-    "papers / arXiv / research with actionable experimental implications",
-    "expert and founder opinions only when they affect research direction or capability planning",
-    "robotics company capability requirements and skill roadmap"
+    "global mainstream media synthesis",
+    "economy / markets / central banks / financial fragility",
+    "technology frontier beyond large models",
+    "robotics / embodied intelligence / manufacturing and supply chain",
+    "culture / internet culture / lifestyle signals",
+    "entertainment / streaming / film / music / games",
+    "select papers and AIHOT items only when they affect broader research, industry, or culture"
   ],
+  "sourcePriority": {
+    "tier1": ["Reuters", "Associated Press", "Financial Times", "Wall Street Journal", "BBC", "Bloomberg", "The Economist", "New York Times"],
+    "tier2": ["The Verge", "Wired", "The Guardian", "MarketWatch", "Variety", "Vulture", "Hollywood Reporter", "Axios"],
+    "tier3": ["AIHOT", "arXiv", "Nature", "Science", "company blogs", "GitHub", "niche newsletters"]
+  },
+  "dailyMixTarget": {
+    "economy_markets": 3,
+    "technology_frontier": 2,
+    "robotics_embodied": 2,
+    "culture_internet": 1,
+    "entertainment_streaming_music_games": 2
+  },
   "topTopics": [
+    { "topic": "global-mainstream-media-ledger", "weight": 10 },
+    { "topic": "economy-markets", "weight": 10 },
+    { "topic": "technology-frontier-beyond-LLMs", "weight": 9 },
+    { "topic": "robotics-manufacturing-supply-chain", "weight": 8 },
+    { "topic": "culture-internet-taste", "weight": 8 },
+    { "topic": "entertainment-streaming-film-music-games", "weight": 8 },
     { "topic": "premium-editorial-voice", "weight": 10 },
     { "topic": "global-tech-economics-style", "weight": 10 },
-    { "topic": "no-AI-trace-writing", "weight": 10 },
-    { "topic": "original-source-digest", "weight": 10 },
-    { "topic": "minimum-500-character-digest", "weight": 10 },
-    { "topic": "single-column-ledger-layout", "weight": 10 },
-    { "topic": "embodied", "weight": 10 },
-    { "topic": "real-robot", "weight": 9 },
-    { "topic": "robot-learning", "weight": 9 },
-    { "topic": "deployment", "weight": 8 },
-    { "topic": "sim-to-real", "weight": 8 },
-    { "topic": "paper", "weight": 7 },
-    { "topic": "control", "weight": 7 },
-    { "topic": "career", "weight": 6 }
+    { "topic": "no-AI-trace-writing", "weight": 10 }
   ],
   "downrankTopics": [
+    { "topic": "LLM-only product news", "weight": 0 },
+    { "topic": "AIHOT-only narrow feed", "weight": 0 },
+    { "topic": "robotics demo without deployment signal", "weight": 1 },
+    { "topic": "financing-only startup news without market meaning", "weight": 1 },
+    { "topic": "celebrity gossip without cultural or market signal", "weight": 1 },
     { "topic": "not-but sentence pattern", "weight": 0 },
     { "topic": "不是而是句式", "weight": 0 },
-    { "topic": "AI-like transition phrases", "weight": 0 },
-    { "topic": "generic AI product launch", "weight": 1 },
-    { "topic": "financing-only news", "weight": 1 },
-    { "topic": "celebrity hype", "weight": 1 },
-    { "topic": "multi-column-card-grid", "weight": 0 },
-    { "topic": "link-only source cards", "weight": 0 },
-    { "topic": "shallow source summaries", "weight": 0 }
+    { "topic": "AI-like transition phrases", "weight": 0 }
   ],
   "layoutRules": {
+    "status": "frozen",
     "requiredLayout": "single-column editorial briefing ledger",
     "desktop": "single column; no side-by-side cards",
-    "itemShape": "full-width row with left metadata rail and right headline, deck, and in-place expansion"
+    "itemShape": "full-width row with left metadata rail and right headline, deck, and in-place expansion",
+    "digestMarking": "low-noise editorial marks only; at most 3 core marks plus 1 data mark per item"
   },
   "sourceDigestRules": {
-    "minimumLength": "Every expanded item must include an Original-source digest of at least 500 Chinese characters.",
-    "purpose": "The expanded item should let the user understand the original source without opening every link.",
+    "purpose": "The expanded item should let the user understand the source without opening every link.",
     "mustInclude": [
+      "source type and provenance",
       "detailed Chinese reconstruction of source content",
-      "source claims and supporting evidence",
-      "important numbers, settings, platforms, job requirements, methods, datasets, or limitations when available",
-      "clear separation between source facts and analyst inference",
+      "the reason this item matters beyond the headline",
+      "market, technology, culture, or capability consequence",
+      "clear separation between facts and analyst judgment",
       "source links for traceability"
     ]
-  },
-  "microcopyRules": {
-    "purpose": "Small text must serve the content, not describe the writing process.",
-    "goodUses": [
-      "source type and date",
-      "evidence confidence",
-      "technical locus",
-      "deployment risk",
-      "RA-L evidence chain",
-      "hiring signal"
-    ],
-    "avoid": ["source-first", "analyst-grade", "personalized", "new standard", "editorial upgrade"]
   },
   "editorialVoice": {
     "referenceStyle": [
       "global premium technology newsletters",
       "serious economics and markets bloggers",
-      "strategy memo written by a private analyst",
-      "high-end paid research briefing"
+      "mainstream newspaper briefing desk",
+      "paid culture and business intelligence memo"
     ],
     "tone": "calm, literate, strategic, slightly sharp, evidence-aware, and judgment-led",
-    "preferredStructure": "Thesis -> source digest over 500 Chinese characters -> evidence boundary -> strategic read -> research and capability consequence -> action",
     "hardBans": [
       "不是……而是……",
       "不是X，而是Y",
@@ -81,38 +78,12 @@
       "这说明了",
       "总的来说",
       "以下几点",
-      "值得注意的是 repeated mechanically",
       "AI-style checklist language",
       "template-heavy transitions"
-    ],
-    "writeLike": [
-      "a sharp technology columnist with market sense",
-      "a calm strategy analyst who understands research incentives",
-      "a paid newsletter writer who compresses evidence into judgment"
     ]
   },
   "generationGuidance": {
-    "prioritize": [
-      "embodied AI",
-      "robot learning",
-      "sim-to-real",
-      "ROS2/C++/deployment",
-      "credible baselines",
-      "RA-L/ICRA/IROS publication strategy",
-      "source-first original-source digest",
-      "single-column editorial ledger layout",
-      "private analyst perspective",
-      "premium technology and economics prose"
-    ],
-    "downrank": [
-      "generic AI product launches",
-      "financing-only news",
-      "celebrity hype",
-      "pure LLM benchmarks without robotics implication",
-      "multi-column card grid",
-      "link-only summaries",
-      "formulaic contrast phrasing"
-    ],
-    "format": "mobile-first premium editorial briefing ledger; Chinese main text; preserve English technical terms; every expanded item includes a 500+ Chinese character Original-source digest; writing must avoid formulaic contrast patterns and AI-like transitions."
+    "format": "mobile-first premium editorial briefing ledger; Chinese main text; preserve English technical terms; layout frozen; source mix broadened to global mainstream media.",
+    "selectionRule": "Start from mainstream global media, then add AIHOT/arXiv/company sources only if they add a broader technology, market, robotics, or cultural signal. The daily briefing should not be dominated by large models or robotics unless the news cycle genuinely justifies it."
   }
 }
