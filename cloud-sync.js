@@ -23,6 +23,9 @@
   .cloud-status{font-size:12px;color:var(--muted);padding:8px 0 0;line-height:1.5;white-space:pre-wrap;}
   .cloud-warning{border-left:3px solid var(--gold);padding:8px 10px;background:color-mix(in srgb,var(--gold2) 20%,transparent);border-radius:12px;margin-top:9px;}
   .mini-code{font-size:12px;border:1px solid var(--hair);border-radius:12px;padding:8px;background:color-mix(in srgb,var(--paper2) 72%,var(--card));overflow:auto;}
+  .hero .snapshot{display:none!important;}
+  .hero{grid-template-columns:1fr!important;}
+  .hero .lead{max-width:none;}
   @media(min-width:760px){.cloud-grid.two{grid-template-columns:1fr 1fr;}}
   `;
   const style=document.createElement('style');style.textContent=css;document.head.appendChild(style);
@@ -68,7 +71,7 @@
       generationGuidance:{
         prioritize:['embodied AI','robot learning','sim-to-real','ROS2/C++/deployment','credible baselines','RA-L/ICRA/IROS publication strategy','future research directions based on existing hexapod/depth/target-following platform'],
         downrank:['generic AI product launches','financing-only news','celebrity hype','pure LLM benchmarks without robotics implication'],
-        format:'mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include research implications and capability roadmap.'
+        format:'mobile-first premium editorial briefing ledger; Chinese main text; preserve English technical terms; include 500+ character original-source digests, research implications and capability roadmap.'
       }
     }
   }
@@ -79,7 +82,20 @@
     ['savedItemIds','readItemIds','hiddenItemIds'].forEach((k)=>{const map={savedItemIds:'saved',readItemIds:'read',hiddenItemIds:'hidden'};mem[map[k]]=[...new Set([...(mem[map[k]]||[]),...(profile[k]||[])])]});
     mem.events=mem.events||[];mem.events.unshift({time:new Date().toISOString(),type:'pull-public-profile',title:'Merged preference-profile.json'});mem.events=mem.events.slice(0,160);setMem(mem);return mem;
   }
+  function rewriteHero(){
+    const eyebrow=document.querySelector('.hero .eyebrow');
+    const title=document.querySelector('.hero h1');
+    const deck=document.querySelector('.hero .lead p');
+    const pill=document.querySelector('.subbrand .pill');
+    const sub=document.querySelector('.subbrand span:nth-child(2)');
+    if(eyebrow) eyebrow.textContent='AIHOT Daily · 2026-07-04 · Embodied intelligence / papers / industry';
+    if(title) title.textContent='具身智能开始从模型叙事，转向证据、记忆与部署能力。';
+    if(deck) deck.textContent='今天的主线很清楚：VLM 的推理链仍有脆弱性，视频 tokenization 正在改变长期视觉记忆的成本，多智能体研究提醒我们“专家利用”比“专家数量”更关键，而宇树 IPO 则把机器人竞争推向制造、资本和真实部署。对你的研究而言，这些新闻共同指向一个更硬的标准：系统必须能在真实约束下解释失败、保留证据，并把智能意图落到可执行的安全控制。';
+    if(pill) pill.textContent='Daily robotics intelligence';
+    if(sub) sub.textContent='源头消化、证据边界、私人判断；后台记忆不占用阅读首屏';
+  }
   function ensurePanel(){
+    rewriteHero();
     const grid=document.querySelector('#memory .memory-grid'); if(!grid||document.getElementById('cloudPanel'))return;
     const panel=document.createElement('article'); panel.className='board'; panel.id='cloudPanel';
     panel.innerHTML=`
