@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   deploy:
+    # redeploy trigger: 2026-07-04T07:08:00+09:00
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
