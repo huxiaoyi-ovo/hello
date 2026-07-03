@@ -1,6 +1,6 @@
 {
   "schema": "drhu.preference-profile.v1",
-  "updatedAt": "2026-07-04T06:28:00+09:00",
+  "updatedAt": "2026-07-04T06:36:00+09:00",
   "owner": "DR.Hu",
   "profilePurpose": "Low-sensitivity preference profile for daily AIHOT and robotics research briefing generation.",
   "primaryFocus": [
@@ -13,6 +13,7 @@
   "topTopics": [
     { "topic": "embodied", "weight": 10 },
     { "topic": "source-first-analysis", "weight": 10 },
+    { "topic": "original-source-digest", "weight": 10 },
     { "topic": "premium-editorial-voice", "weight": 10 },
     { "topic": "content-serving-microcopy", "weight": 10 },
     { "topic": "high-level-strategic-view", "weight": 10 },
@@ -35,6 +36,8 @@
     { "topic": "template-heavy writing", "weight": 0 },
     { "topic": "self-referential UI labels", "weight": 0 },
     { "topic": "microcopy that only describes the writing process", "weight": 0 },
+    { "topic": "link-only source cards", "weight": 0 },
+    { "topic": "shallow source summaries", "weight": 0 },
     { "topic": "shallow personal advice", "weight": 0 }
   ],
   "likedSignals": [
@@ -43,6 +46,7 @@
     "papers that can inspire real-robot experiments",
     "embodied AI system architecture and deployment lessons",
     "source-first analysis based on original papers, company blogs, GitHub repos, official posts, job descriptions, or primary reports",
+    "original-source digest that reconstructs the source's facts, structure, data, methods, claims, evidence chain, and limitations inside the expanded card",
     "high-level strategic interpretation similar to foreign paid research newsletters and analyst memos",
     "writing with editorial taste: clear thesis, selective evidence, explicit judgment, and memorable prose",
     "small text that adds information: source type, date, confidence, technical locus, risk, or consequence"
@@ -56,8 +60,35 @@
     "empty motivational language",
     "generic consultant tone without original judgment",
     "小字只是提示写作规则，而不服务内容",
-    "标签写成 source-first / analyst-grade / personalized 这类自我描述"
+    "标签写成 source-first / analyst-grade / personalized 这类自我描述",
+    "展开详情里只有链接，没有把原文内容消化进页面",
+    "只说结论，不交代原文材料本身"
   ],
+  "sourceDigestRules": {
+    "purpose": "The expanded detail area should let the user understand the original source without needing to open every link.",
+    "mustInclude": [
+      "a detailed paraphrased reconstruction of the original source content",
+      "the source's main claims and supporting evidence",
+      "important numbers, experimental settings, datasets, robot platforms, company facts, job requirements, or technical mechanisms when available",
+      "what the source explicitly says versus what is inferred",
+      "short direct excerpts only when they are especially diagnostic",
+      "clear citation/source link for every important source"
+    ],
+    "copyrightBoundary": [
+      "Do not reproduce full copyrighted articles, posts, reports, or papers verbatim unless the user provided the text or the license clearly allows it.",
+      "Use detailed paraphrase and structured reconstruction for copyrighted sources.",
+      "Use short quotations sparingly and only when the exact wording matters.",
+      "For user-provided drafts, uploaded files, or the user's own text, full reproduction is allowed when useful.",
+      "For permissively licensed or public-domain material, include more original text only when license and relevance justify it."
+    ],
+    "preferredSectionName": "Original-source digest",
+    "avoid": [
+      "link-only cards",
+      "one-paragraph shallow summaries",
+      "telling the user to open the original source for all important details",
+      "copying long copyrighted passages verbatim"
+    ]
+  },
   "editorialVoice": {
     "referenceStyle": [
       "foreign paid research newsletters",
@@ -96,7 +127,7 @@
       ]
     },
     "tone": "calm, literate, strategic, slightly sharp, evidence-aware, with the feeling of a private analyst who knows the user's research trajectory.",
-    "preferredStructure": "Thesis → Source facts → Hidden structure → Personal analyst view → Research/capability consequence → Action.",
+    "preferredStructure": "Thesis → Original-source digest → Evidence boundary → Hidden structure → Personal analyst view → Research/capability consequence → Action.",
     "avoid": [
       "这里有几点",
       "总的来说",
@@ -117,6 +148,7 @@
       "RA-L/ICRA/IROS publication strategy",
       "future research directions based on existing hexapod/depth/target-following platform",
       "source-first analysis",
+      "original-source digest",
       "premium editorial voice",
       "content-serving microcopy",
       "strategic private analyst perspective"
@@ -128,8 +160,9 @@
       "pure LLM benchmarks without robotics implication",
       "AI-style bullet summaries",
       "template-driven writing",
-      "self-referential labels and captions"
+      "self-referential labels and captions",
+      "link-only source summaries"
     ],
-    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include source-first context, evidence-aware interpretation, research implications, capability roadmap, and a private analyst view written with high-level editorial judgment. Small text must be content-serving: source, confidence, technical locus, consequence, or risk."
+    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include source-first context, original-source digest, evidence-aware interpretation, research implications, capability roadmap, and a private analyst view written with high-level editorial judgment. Small text must be content-serving: source, confidence, technical locus, consequence, or risk."
   }
 }
