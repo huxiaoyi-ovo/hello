@@ -1,6 +1,6 @@
 {
   "schema": "drhu.preference-profile.v1",
-  "updatedAt": "2026-07-04T06:20:00+09:00",
+  "updatedAt": "2026-07-04T06:28:00+09:00",
   "owner": "DR.Hu",
   "profilePurpose": "Low-sensitivity preference profile for daily AIHOT and robotics research briefing generation.",
   "primaryFocus": [
@@ -14,6 +14,7 @@
     { "topic": "embodied", "weight": 10 },
     { "topic": "source-first-analysis", "weight": 10 },
     { "topic": "premium-editorial-voice", "weight": 10 },
+    { "topic": "content-serving-microcopy", "weight": 10 },
     { "topic": "high-level-strategic-view", "weight": 10 },
     { "topic": "real-robot", "weight": 9 },
     { "topic": "robot-learning", "weight": 9 },
@@ -32,6 +33,8 @@
     { "topic": "pure LLM leaderboard without robotics implication", "weight": 2 },
     { "topic": "AI-like bullet-point summaries", "weight": 0 },
     { "topic": "template-heavy writing", "weight": 0 },
+    { "topic": "self-referential UI labels", "weight": 0 },
+    { "topic": "microcopy that only describes the writing process", "weight": 0 },
     { "topic": "shallow personal advice", "weight": 0 }
   ],
   "likedSignals": [
@@ -41,7 +44,8 @@
     "embodied AI system architecture and deployment lessons",
     "source-first analysis based on original papers, company blogs, GitHub repos, official posts, job descriptions, or primary reports",
     "high-level strategic interpretation similar to foreign paid research newsletters and analyst memos",
-    "writing with editorial taste: clear thesis, selective evidence, explicit judgment, and memorable prose"
+    "writing with editorial taste: clear thesis, selective evidence, explicit judgment, and memorable prose",
+    "small text that adds information: source type, date, confidence, technical locus, risk, or consequence"
   ],
   "dislikedSignals": [
     "generic AI news with no robotics implication",
@@ -50,7 +54,9 @@
     "AI-style checklist language",
     "机械的总结、映射、建议三段式",
     "empty motivational language",
-    "generic consultant tone without original judgment"
+    "generic consultant tone without original judgment",
+    "小字只是提示写作规则，而不服务内容",
+    "标签写成 source-first / analyst-grade / personalized 这类自我描述"
   ],
   "editorialVoice": {
     "referenceStyle": [
@@ -67,8 +73,28 @@
       "Be selective; ignore low-signal noise even if it is trending.",
       "Give explicit judgment: why it matters, why it may be overhyped, and what changes for the user.",
       "Use elegant but restrained Chinese prose, preserving English technical terms where they carry technical precision.",
-      "Avoid AI-like phrases, generic transitions, repetitive templates, and shallow encouragement."
+      "Avoid AI-like phrases, generic transitions, repetitive templates, and shallow encouragement.",
+      "Every small label, kicker, deck, caption, tag and footnote must serve the reader's understanding of the content, not describe the assistant's workflow."
     ],
+    "microcopyRules": {
+      "purpose": "Small text must add content-level information, not self-instruction.",
+      "goodUses": [
+        "source type: arXiv paper / company blog / hiring signal / primary interview",
+        "time and freshness: published today / updated this week / older but still structurally relevant",
+        "confidence: official fact / author claim / media report / speculative signal",
+        "technical locus: VLA policy layer / local safety layer / sim-to-real / deployment stack",
+        "reader consequence: changes baseline priority / affects RA-L evidence chain / informs skill roadmap"
+      ],
+      "avoid": [
+        "Source-first",
+        "Analyst-grade",
+        "Personalized",
+        "New Standard",
+        "Editorial upgrade",
+        "Private Analyst View as a decorative label when it adds no content",
+        "any label that sounds like the assistant reminding itself how to write"
+      ]
+    },
     "tone": "calm, literate, strategic, slightly sharp, evidence-aware, with the feeling of a private analyst who knows the user's research trajectory.",
     "preferredStructure": "Thesis → Source facts → Hidden structure → Personal analyst view → Research/capability consequence → Action.",
     "avoid": [
@@ -92,6 +118,7 @@
       "future research directions based on existing hexapod/depth/target-following platform",
       "source-first analysis",
       "premium editorial voice",
+      "content-serving microcopy",
       "strategic private analyst perspective"
     ],
     "downrank": [
@@ -100,8 +127,9 @@
       "celebrity hype",
       "pure LLM benchmarks without robotics implication",
       "AI-style bullet summaries",
-      "template-driven writing"
+      "template-driven writing",
+      "self-referential labels and captions"
     ],
-    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include source-first context, evidence-aware interpretation, research implications, capability roadmap, and a private analyst view written with high-level editorial judgment."
+    "format": "mobile-first premium editorial interactive webpage; Chinese main text; preserve English technical terms; include source-first context, evidence-aware interpretation, research implications, capability roadmap, and a private analyst view written with high-level editorial judgment. Small text must be content-serving: source, confidence, technical locus, consequence, or risk."
   }
 }
