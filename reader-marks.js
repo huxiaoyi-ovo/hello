@@ -1,69 +1,62 @@
 const DIGEST_MARKS={
-  'vlm-rl-robustness':[
-    ['收益被准确率提前确认，损失却隐藏在鲁棒性和忠实性里','mark'],
-    ['答案置信度和推理一致性出现明显退化','strong'],
-    ['correctness、robustness、confidence calibration 和 visual-grounded reasoning faithfulness','underline'],
-    ['把语言噪声转化成物理风险','strong']
+  'global-markets-jobs':[
+    ['全球股市走向两个月来最好的一周','strong'],
+    ['美国 6 月就业数据降温','data'],
+    ['市场正在重新计算利率路径、AI 资本开支、美元强弱和地区估值之间的相对价格','mark'],
+    ['它决定其他科技、消费、娱乐新闻的资金背景','underline']
   ],
-  'videoflextok':[
-    ['重新定价视频表示','strong'],
-    ['少量 token 捕捉语义、运动和全局结构，再用更多 token 补充纹理与细节','underline'],
-    ['672 个 token，约为可比三维网格 tokenizer 的八分之一','data'],
-    ['视觉记忆的瓶颈会从存储所有帧，转向选择哪些状态变化值得留下','mark']
+  'bis-debt-ai-fragility':[
+    ['AI 投资潮正在变成宏观金融变量','strong'],
+    ['高公共债务、持续供给冲击、通胀重新黏住的风险，以及金融市场脆弱性','underline'],
+    ['核心债券市场变得更脆','mark'],
+    ['它会推动芯片、数据中心、电力、地产、债务融资一起涨','strong']
   ],
-  'multi-agent-expert':[
-    ['团队持续落后于专家智能体的单独表现','strong'],
-    ['损失达到 41.1%','data'],
-    ['瓶颈不在“识别专家”，而在“利用专家”','underline'],
-    ['能力模块越多，仲裁层越关键','mark']
+  'chipflation-economy':[
+    ['AI 数据中心争夺高端内存和半导体产能','strong'],
+    ['上游拿走定价权，下游在涨价与压缩利润之间选择','mark'],
+    ['消费者则可能为更贵的电脑、手机和电子设备买单','underline'],
+    ['连接科技、通胀、消费和资本市场','strong']
   ],
-  'page-agent':[
-    ['读取实时 DOM，再把复杂页面压缩成 FlatDomTree 文本映射','strong'],
-    ['模型看到结构化页面状态，无需通过图像判断按钮含义','mark'],
-    ['提示词安全无法替代权限系统','strong'],
-    ['高层模型可以读结构化局部地图与任务摘要，底层控制权限必须受限','underline']
+  'china-robot-overload':[
+    ['产业声量与真实商业化之间存在明显落差','strong'],
+    ['至少 200 亿美元级别的补贴','data'],
+    ['很多产品进入的是科研、教育和测试场景，而非稳定工业应用','underline'],
+    ['补贴—估值—技术约束—商业落地','mark']
   ],
-  'microsoft-frontier':[
-    ['25 亿美元，将 6000 名行业与工程专家派驻企业客户现场','data'],
-    ['模型必须进入现有流程、数据权限、审计链路、合规体系和绩效指标','mark'],
-    ['一个策略网络只是资产负债表上的单项资产，部署工程决定它能否产生现金流','underline'],
-    ['能把系统带到复杂环境、复现实验、解释失败、降低维护成本的人更稀缺','strong']
+  'unitree-ipo-capital':[
+    ['计划募资约 42 亿元人民币，约合 6.19 亿美元','data'],
+    ['机器人从实验室和展会进入制造纪律的信号','strong'],
+    ['机械结构、关节、传感器、供应链、产线、测试和售后','mark'],
+    ['市场对收入、毛利、交付和现金流的要求也更硬','underline']
   ],
-  'unitree-ipo':[
-    ['目标募资约 42 亿元人民币，约合 6.19 亿美元','data'],
-    ['模型、机械设计、产品线和制造能力被放在同一张资本计划里','mark'],
-    ['资本开支、产能、良率、维护、渠道和真实场景部署','strong'],
-    ['产业资本正在奖励可执行性','underline']
+  'chipmakers-stock-boom':[
+    ['资本市场的重心从应用软件推向基础硬件','strong'],
+    ['算力、存储、内存、电力和数据中心这类“铲子”会先吃到资本开支','mark'],
+    ['它解释了为什么同样是 AI 新闻，有些是概念，有些已经变成利润和股价','underline']
   ],
-  'leanstral':[
-    ['在 57 个开源仓库中发现 5 个未知 bug','data'],
-    ['AI 工具链正在从生成代码，进入检查代码、证明性质、发现隐藏错误的阶段','mark'],
-    ['策略网络性能再强，也会被这些系统错误拖垮','strong'],
-    ['哪些条件触发停止，哪些状态允许高层模型介入，哪些控制量受到硬约束','underline']
+  'ap-streaming-week':[
+    ['电影、音乐、电视和游戏','mark'],
+    ['7 月 7 日','data'],
+    ['一周文化消费入口的横向筛选','strong'],
+    ['观察平台、类型、IP 和消费习惯','underline']
   ],
-  'vidu-s1':[
-    ['实时视频通话级交互和语音控制视频走向','strong'],
-    ['540P 分辨率下实现 25FPS，最高 42FPS','data'],
-    ['严格区分视觉叙事和物理证据','underline'],
-    ['它无法替代真实传感器、真实接触、真实动力学和可复现实验','strong']
+  'streaming-subscription-strategy':[
+    ['娱乐消费写成了一笔家庭预算账','strong'],
+    ['Apple TV+','data'],
+    ['流媒体已经不是单纯娱乐新闻','mark'],
+    ['平台在一个月内有没有足够理由留下用户','underline']
   ],
-  'agent-ransomware':[
-    ['agent 正从问答对象变成操作主体','mark'],
-    ['风险随权限上升呈非线性放大','strong'],
-    ['最小权限、动作白名单、人类确认、审计日志、回滚机制、沙箱和异常中止条件','underline'],
-    ['动作会进入物理空间','strong']
+  'verge-summer-culture':[
+    ['互联网文化的轻量民调','strong'],
+    ['人们实际在玩什么、厌倦什么、觉得什么有趣','mark'],
+    ['文化雷达，而不是事实锚点','underline'],
+    ['缺少生活质感','strong']
   ],
-  'claude-real-video':[
-    ['本地做场景感知、去重和语音转写','strong'],
-    ['真正关键的状态变化、动作开始、目标丢失、碰撞前后片段反而被稀释','underline'],
-    ['自动定位 near miss、collision、target lost、recovery、human intervention','mark'],
-    ['把原始录像变成 failure intelligence','strong']
-  ],
-  'safari-mcp':[
-    ['模型可以通过 MCP 进入浏览器调试环境','strong'],
-    ['读取结构化状态、定位元素、分析性能','underline'],
-    ['机器人系统会走向类似形态','mark'],
-    ['工具层设计会决定 AI 助手能否从聊天对象变成实验系统的一部分','strong']
+  'robot-supply-chain-jv':[
+    ['机器人竞争开始深入关节和传动件','strong'],
+    ['关节、减速器、轴承、传感器、电机、热管理、寿命测试和装配一致性','mark'],
+    ['供应链公司决定量产后的可靠性、成本和交付速度','underline'],
+    ['把注意力拉回工业能力','strong']
   ]
 };
 (function(){
@@ -77,44 +70,15 @@ const DIGEST_MARKS={
       .digest-reader.editorial-marks .digest-lede{font-size:18px;line-height:1.66;font-weight:900;color:#11100e;border-bottom:1px solid rgba(184,129,47,.24);padding-bottom:11px;margin:0 0 13px;letter-spacing:-.012em}
       [data-theme="night"] .digest-reader.editorial-marks .digest-lede{color:#fff3d8}
       .digest-reader.editorial-marks .digest-body p{margin:0 0 .82em}.digest-reader.editorial-marks .digest-body p:last-child{margin-bottom:0}
-      .ed-strong{font-weight:850;color:#14110d}
-      .ed-mark{font-weight:760;background:linear-gradient(transparent 72%,rgba(225,185,107,.25) 0);padding:0 .04em}
-      .ed-underline{font-weight:720;text-decoration:underline;text-decoration-color:rgba(88,82,70,.45);text-decoration-thickness:1px;text-underline-offset:.2em}
-      .ed-data{font-family:var(--mono);font-size:.94em;font-weight:760;color:#5e3b14;background:rgba(184,129,47,.10);border:1px solid rgba(184,129,47,.18);border-radius:6px;padding:.01em .22em;white-space:nowrap}
+      .ed-strong{font-weight:850;color:#14110d}.ed-mark{font-weight:760;background:linear-gradient(transparent 72%,rgba(225,185,107,.25) 0);padding:0 .04em}.ed-underline{font-weight:720;text-decoration:underline;text-decoration-color:rgba(88,82,70,.45);text-decoration-thickness:1px;text-underline-offset:.2em}.ed-data{font-family:var(--mono);font-size:.94em;font-weight:760;color:#5e3b14;background:rgba(184,129,47,.10);border:1px solid rgba(184,129,47,.18);border-radius:6px;padding:.01em .22em;white-space:nowrap}
       [data-theme="night"] .ed-strong{color:#fff}[data-theme="night"] .ed-mark{background:linear-gradient(transparent 72%,rgba(225,185,107,.20) 0)}[data-theme="night"] .ed-data{color:#ffe0a4}
     `;
     document.head.appendChild(style);
   }
   function esc(s){return String(s||'').replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
   function cssEscape(s){return String(s).replace(/(["\\])/g,'\\$1');}
-  function applyOne(html,phrase,type){
-    const safe=esc(phrase);
-    const cls={strong:'ed-strong',mark:'ed-mark',underline:'ed-underline',data:'ed-data'}[type]||'ed-strong';
-    return html.replace(safe,`<span class="${cls}">${safe}</span>`);
-  }
-  function buildDigest(id,text){
-    const marks=DIGEST_MARKS[id]||[];
-    const m=text.match(/^(.+?[。！？.!?])(.+)$/s);
-    const lead=m?m[1]:text.slice(0,90);
-    const rest=m?m[2].trim():text.slice(90).trim();
-    let leadHtml=esc(lead);
-    let bodyHtml=esc(rest);
-    marks.forEach(([phrase,type])=>{leadHtml=applyOne(leadHtml,phrase,type);bodyHtml=applyOne(bodyHtml,phrase,type);});
-    const paragraphs=bodyHtml.split(/(?<=[。！？])\s*/).filter(Boolean).map(p=>`<p>${p}</p>`).join('');
-    return `<div class="digest-reader editorial-marks"><p class="digest-lede">${leadHtml}</p><div class="digest-body">${paragraphs}</div></div>`;
-  }
-  function run(){
-    injectStyles();
-    if(typeof STORIES==='undefined') return;
-    STORIES.forEach(function(s){
-      const article=document.querySelector(`.story-row[data-id="${cssEscape(s.id)}"]`);
-      if(!article) return;
-      const panel=article.querySelector('.analysis-panel');
-      if(!panel) return;
-      const old=panel.querySelector('.digest,.digest-reader');
-      if(!old) return;
-      old.outerHTML=buildDigest(s.id,s.digest);
-    });
-  }
+  function applyOne(html,phrase,type){const safe=esc(phrase);const cls={strong:'ed-strong',mark:'ed-mark',underline:'ed-underline',data:'ed-data'}[type]||'ed-strong';return html.replace(safe,`<span class="${cls}">${safe}</span>`);}
+  function buildDigest(id,text){const marks=DIGEST_MARKS[id]||[];const m=text.match(/^(.+?[。！？.!?])(.+)$/s);const lead=m?m[1]:text.slice(0,90);const rest=m?m[2].trim():text.slice(90).trim();let leadHtml=esc(lead);let bodyHtml=esc(rest);marks.forEach(([phrase,type])=>{leadHtml=applyOne(leadHtml,phrase,type);bodyHtml=applyOne(bodyHtml,phrase,type);});const paragraphs=bodyHtml.split(/(?<=[。！？])\s*/).filter(Boolean).map(p=>`<p>${p}</p>`).join('');return `<div class="digest-reader editorial-marks"><p class="digest-lede">${leadHtml}</p><div class="digest-body">${paragraphs}</div></div>`;}
+  function run(){injectStyles();if(typeof STORIES==='undefined')return;STORIES.forEach(function(s){const article=document.querySelector(`.story-row[data-id="${cssEscape(s.id)}"]`);if(!article)return;const panel=article.querySelector('.analysis-panel');if(!panel)return;const old=panel.querySelector('.digest,.digest-reader');if(!old)return;old.outerHTML=buildDigest(s.id,s.digest);});}
   document.addEventListener('DOMContentLoaded',function(){setTimeout(run,350);setTimeout(run,900);});
 })();
