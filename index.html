@@ -4,318 +4,90 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="theme-color" content="#111111" />
-<title>Embodied Intelligence Brief｜Premium Research Intelligence</title>
+<title>DR.Hu Intelligence Desk｜Personal Research Brief</title>
 <style>
 :root{
-  --paper:#f4efe4;
-  --paper-2:#fbf8f1;
-  --ink:#151515;
-  --muted:#6f6a60;
-  --hair:#d8cdb9;
-  --hair-2:#ebe3d3;
-  --gold:#b8812f;
-  --gold-2:#e8cf9b;
-  --red:#9f2f2f;
-  --blue:#1f4e79;
-  --green:#315f4b;
-  --card:#fffdf8;
-  --shadow:0 18px 45px rgba(25,20,12,.10);
-  --radius:22px;
+  --paper:#f4efe4; --paper2:#fbf8f1; --ink:#151515; --muted:#6d675d;
+  --hair:#d8cdb9; --hair2:#ebe3d3; --gold:#b8812f; --gold2:#ecd6a7;
+  --red:#9f2f2f; --blue:#1f4e79; --green:#315f4b; --card:#fffdf8;
+  --shadow:0 20px 55px rgba(28,22,12,.11); --radius:23px;
   --sans:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",Arial,sans-serif;
   --serif:Georgia,"Times New Roman","Noto Serif SC","Songti SC",serif;
 }
-[data-theme="night"]{
-  --paper:#11100e;
-  --paper-2:#181613;
-  --ink:#f4efe4;
-  --muted:#aaa093;
-  --hair:#3a3328;
-  --hair-2:#28231c;
-  --gold:#e1b96b;
-  --gold-2:#594322;
-  --red:#e5867f;
-  --blue:#8ab4f8;
-  --green:#8fd3ae;
-  --card:#191713;
-  --shadow:0 18px 45px rgba(0,0,0,.35);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  color:var(--ink);
-  background:
-    radial-gradient(circle at 20% 0%, rgba(184,129,47,.13), transparent 30%),
-    linear-gradient(180deg,var(--paper-2),var(--paper));
-  font-family:var(--sans);
-  line-height:1.62;
-  letter-spacing:.01em;
-}
-body::before{
-  content:"";
-  position:fixed; inset:0; pointer-events:none; opacity:.22;
-  background-image:linear-gradient(rgba(0,0,0,.025) 1px, transparent 1px);
-  background-size:100% 4px;
-  mix-blend-mode:multiply;
-}
-.progress{position:fixed; top:0; left:0; height:3px; width:0; background:var(--gold); z-index:99}
-a{color:inherit}
-.page{max-width:1180px; margin:0 auto; padding:18px 16px 76px}
-.masthead{
-  padding:22px 0 18px;
-  border-bottom:1px solid var(--hair);
-}
-.topline{
-  display:flex; justify-content:space-between; gap:12px; align-items:center;
-  color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.12em;
-}
-.brand{
-  margin:18px 0 6px;
-  font-family:var(--serif);
-  font-size:clamp(36px,9vw,78px);
-  line-height:.92;
-  letter-spacing:-.055em;
-  font-weight:700;
-}
-.subbrand{display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; color:var(--muted); font-size:14px}
-.edition-pill{border:1px solid var(--hair); border-radius:999px; padding:5px 10px; background:rgba(255,255,255,.28)}
-.hero-grid{display:grid; grid-template-columns:1fr; gap:16px; padding:18px 0 16px; border-bottom:1px solid var(--hair)}
-.lead{
-  background:var(--card); border:1px solid var(--hair); border-radius:var(--radius); padding:18px;
-  box-shadow:var(--shadow); position:relative; overflow:hidden;
-}
-.lead::before{content:""; position:absolute; inset:0 0 auto; height:5px; background:linear-gradient(90deg,var(--gold),transparent)}
-.eyebrow{font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--gold); font-weight:800}
-.lead h1{font-family:var(--serif); font-size:clamp(28px,7vw,54px); line-height:1.02; letter-spacing:-.035em; margin:9px 0 12px}
-.lead p{font-size:16px; color:var(--muted); margin:0}
-.snapshot{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
-.metric{background:var(--card); border:1px solid var(--hair); border-radius:18px; padding:13px; min-height:96px}
-.metric .num{font-family:var(--serif); font-size:30px; line-height:1; color:var(--ink)}
-.metric .lab{font-size:12px; color:var(--muted); margin-top:8px}
-.metric .delta{font-size:11px; color:var(--green); margin-top:8px; font-weight:750}
-.control-shell{position:sticky; top:0; z-index:50; padding:10px 0; backdrop-filter:blur(18px); background:color-mix(in srgb,var(--paper) 83%,transparent); border-bottom:1px solid rgba(216,205,185,.55)}
-.controls{display:grid; gap:10px}
-.searchbar{display:flex; gap:8px; align-items:center}
-.searchbar input{
-  width:100%; border:1px solid var(--hair); background:var(--card); color:var(--ink); border-radius:999px;
-  padding:12px 14px; outline:none; font-size:14px; box-shadow:0 8px 20px rgba(25,20,12,.04)
-}
-.btn,.chip{
-  border:1px solid var(--hair); background:var(--card); color:var(--ink);
-  border-radius:999px; padding:9px 12px; font-size:13px; white-space:nowrap;
-  cursor:pointer; user-select:none;
-}
-.btn:hover,.chip:hover{border-color:var(--gold)}
-.btn.icon{min-width:42px; text-align:center}
-.chips{display:flex; gap:8px; overflow:auto; padding-bottom:2px; scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip.active{background:var(--ink); color:var(--paper); border-color:var(--ink)}
-.chip.priority.active{background:var(--gold); border-color:var(--gold); color:#14100a}
-.utility{display:flex; gap:8px; overflow:auto; scrollbar-width:none}
-.utility::-webkit-scrollbar{display:none}
-.section-head{display:flex; justify-content:space-between; align-items:end; gap:12px; margin:24px 0 12px}
-.section-head h2{font-family:var(--serif); font-size:28px; letter-spacing:-.035em; margin:0}
-.count{font-size:12px; color:var(--muted); border-bottom:1px solid var(--hair)}
-.feed{display:grid; grid-template-columns:1fr; gap:14px}
-.card{
-  background:var(--card); border:1px solid var(--hair); border-radius:var(--radius);
-  padding:0; overflow:hidden; box-shadow:0 8px 26px rgba(25,20,12,.055);
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.card:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:color-mix(in srgb,var(--gold) 55%,var(--hair))}
-.card-inner{padding:16px}
-.card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
-.kicker-row{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px}
-.tag{font-size:11px; border-radius:999px; padding:4px 8px; border:1px solid var(--hair); color:var(--muted)}
-.tag.high{background:#f5dfd8; color:#7b2525; border-color:#e6b6ad}
-.tag.medium{background:#f4ead6; color:#775214; border-color:#e7cf9b}
-.tag.low{background:#dfeadd; color:#315f4b; border-color:#bad2b4}
-[data-theme="night"] .tag.high{background:#3b1c18;color:#ffb1a8;border-color:#57302c}
-[data-theme="night"] .tag.medium{background:#382b17;color:#f3cc84;border-color:#574326}
-[data-theme="night"] .tag.low{background:#183024;color:#a9e7bd;border-color:#284b39}
-.card h3{font-family:var(--serif); font-size:23px; line-height:1.13; letter-spacing:-.025em; margin:0 0 10px}
-.card p{margin:8px 0; color:var(--muted); font-size:14px}
-.star{border:1px solid var(--hair); background:transparent; color:var(--muted); border-radius:999px; width:38px; height:38px; cursor:pointer; font-size:18px}
-.star.saved{background:var(--gold); color:#15100a; border-color:var(--gold)}
-.readmore{margin-top:12px; border-top:1px solid var(--hair-2)}
-.readmore summary{cursor:pointer; list-style:none; padding:12px 0 0; color:var(--ink); font-weight:800; font-size:13px}
-.readmore summary::-webkit-details-marker{display:none}
-.readmore summary::after{content:"＋"; float:right; color:var(--gold)}
-.readmore[open] summary::after{content:"－"}
-.note-grid{display:grid; grid-template-columns:1fr; gap:9px; margin-top:10px}
-.note{background:color-mix(in srgb,var(--paper-2) 72%,var(--card)); border:1px solid var(--hair-2); border-radius:14px; padding:10px}
-.note b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--gold); margin-bottom:4px}
-.source{display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--blue); text-decoration:none; margin-top:10px; border-bottom:1px solid color-mix(in srgb,var(--blue) 45%,transparent)}
-.dense .feed{gap:8px}.dense .card-inner{padding:12px}.dense .card h3{font-size:19px}.dense .card p,.dense .readmore{display:none}
-.boards{display:grid; grid-template-columns:1fr; gap:14px}
-.board{background:var(--card); border:1px solid var(--hair); border-radius:var(--radius); padding:16px; box-shadow:0 8px 26px rgba(25,20,12,.045)}
-.board h3{font-family:var(--serif); font-size:24px; margin:0 0 12px; letter-spacing:-.025em}
-.ladder{display:grid; gap:10px}
-.step{display:grid; grid-template-columns:34px 1fr; gap:10px; align-items:start}
-.step span{display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--ink); color:var(--paper); font-size:12px; font-weight:800}
-.step b{display:block; margin-bottom:2px}
-.table-like{display:grid; border:1px solid var(--hair); border-radius:16px; overflow:hidden}
-.tr{display:grid; grid-template-columns:1fr; border-bottom:1px solid var(--hair)}
-.tr:last-child{border-bottom:0}.td{padding:11px; font-size:14px}.td:first-child{background:color-mix(in srgb,var(--paper) 55%,var(--card)); font-weight:800;color:var(--ink)}
-.empty{display:none; text-align:center; color:var(--muted); padding:28px; border:1px dashed var(--hair); border-radius:var(--radius); background:rgba(255,255,255,.22)}
-.empty.show{display:block}
-.bottom-nav{position:fixed; left:12px; right:12px; bottom:12px; z-index:60; display:flex; justify-content:space-around; gap:6px; padding:8px; border:1px solid var(--hair); border-radius:999px; background:color-mix(in srgb,var(--card) 92%,transparent); backdrop-filter:blur(18px); box-shadow:var(--shadow)}
-.bottom-nav a{font-size:12px; text-decoration:none; color:var(--muted); padding:6px 8px; border-radius:999px}.bottom-nav a:hover{background:var(--hair-2); color:var(--ink)}
-.toast{position:fixed; left:50%; bottom:82px; transform:translateX(-50%) translateY(16px); opacity:0; pointer-events:none; background:var(--ink); color:var(--paper); padding:10px 14px; border-radius:999px; font-size:13px; transition:.22s; z-index:90}.toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
-@media(min-width:760px){
-  .page{padding:26px 24px 96px}.hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr)}.snapshot{grid-template-columns:repeat(2,1fr)}
-  .controls{grid-template-columns:1fr; gap:9px}.feed{grid-template-columns:repeat(2,minmax(0,1fr))}.boards{grid-template-columns:1fr 1fr}.note-grid{grid-template-columns:1fr 1fr}.tr{grid-template-columns:180px 1fr}.bottom-nav{left:50%; right:auto; transform:translateX(-50%); width:min(620px,calc(100% - 32px))}
-}
+[data-theme="night"]{--paper:#11100e;--paper2:#181613;--ink:#f4efe4;--muted:#aaa093;--hair:#3a3328;--hair2:#28231c;--gold:#e1b96b;--gold2:#594322;--card:#191713;--shadow:0 20px 55px rgba(0,0,0,.42);--blue:#8ab4f8;--green:#8fd3ae;--red:#e5867f}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:radial-gradient(circle at 15% 0%,rgba(184,129,47,.16),transparent 32%),linear-gradient(180deg,var(--paper2),var(--paper));font-family:var(--sans);line-height:1.62;letter-spacing:.01em}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(0,0,0,.025) 1px,transparent 1px);background-size:100% 4px;mix-blend-mode:multiply}.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:99}
+a{color:inherit}.page{max-width:1180px;margin:0 auto;padding:18px 16px 82px}.masthead{padding:23px 0 18px;border-bottom:1px solid var(--hair)}
+.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}.brand{margin:18px 0 7px;font-family:var(--serif);font-size:clamp(35px,9vw,78px);line-height:.92;letter-spacing:-.055em;font-weight:700}.subbrand{display:flex;flex-wrap:wrap;gap:9px 12px;align-items:center;color:var(--muted);font-size:14px}.pill{border:1px solid var(--hair);border-radius:999px;padding:5px 10px;background:rgba(255,255,255,.26)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:16px;padding:18px 0 16px;border-bottom:1px solid var(--hair)}.lead{background:var(--card);border:1px solid var(--hair);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}.lead::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--gold),transparent)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-weight:850}.lead h1{font-family:var(--serif);font-size:clamp(28px,7vw,54px);line-height:1.02;letter-spacing:-.035em;margin:9px 0 12px}.lead p{font-size:16px;color:var(--muted);margin:0}.snapshot{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:13px;min-height:98px}.metric .num{font-family:var(--serif);font-size:30px;line-height:1;color:var(--ink)}.metric .lab{font-size:12px;color:var(--muted);margin-top:8px}.metric .delta{font-size:11px;color:var(--green);margin-top:8px;font-weight:800}
+.control-shell{position:sticky;top:0;z-index:50;padding:10px 0;backdrop-filter:blur(18px);background:color-mix(in srgb,var(--paper) 86%,transparent);border-bottom:1px solid rgba(216,205,185,.58)}.controls{display:grid;gap:10px}.searchbar{display:flex;gap:8px;align-items:center}.searchbar input{width:100%;border:1px solid var(--hair);background:var(--card);color:var(--ink);border-radius:999px;padding:12px 14px;outline:none;font-size:14px;box-shadow:0 8px 20px rgba(25,20,12,.04)}.btn,.chip{border:1px solid var(--hair);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 12px;font-size:13px;white-space:nowrap;cursor:pointer;user-select:none}.btn:hover,.chip:hover{border-color:var(--gold)}.btn.icon{min-width:42px;text-align:center}.utility{display:flex;gap:8px;overflow:auto;scrollbar-width:none}.utility::-webkit-scrollbar{display:none}.chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}.chip.priority.active{background:var(--gold);border-color:var(--gold);color:#14100a}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:24px 0 12px}.section-head h2{font-family:var(--serif);font-size:29px;letter-spacing:-.035em;margin:0}.count{font-size:12px;color:var(--muted);border-bottom:1px solid var(--hair)}.feed{display:grid;grid-template-columns:1fr;gap:14px}.empty{display:none;text-align:center;color:var(--muted);padding:28px;border:1px dashed var(--hair);border-radius:var(--radius);background:rgba(255,255,255,.22)}.empty.show{display:block}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:var(--radius);padding:0;overflow:hidden;box-shadow:0 8px 26px rgba(25,20,12,.055);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--gold) 55%,var(--hair))}.card.read{opacity:.78}.card-inner{padding:16px}.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.kicker-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}.tag{font-size:11px;border-radius:999px;padding:4px 8px;border:1px solid var(--hair);color:var(--muted)}.tag.high{background:#f5dfd8;color:#7b2525;border-color:#e6b6ad}.tag.medium{background:#f4ead6;color:#775214;border-color:#e7cf9b}.tag.low{background:#dfeadd;color:#315f4b;border-color:#bad2b4}[data-theme="night"] .tag.high{background:#3b1c18;color:#ffb1a8;border-color:#57302c}[data-theme="night"] .tag.medium{background:#382b17;color:#f3cc84;border-color:#574326}[data-theme="night"] .tag.low{background:#183024;color:#a9e7bd;border-color:#284b39}.card h3{font-family:var(--serif);font-size:23px;line-height:1.13;letter-spacing:-.025em;margin:0 0 10px}.card p{margin:8px 0;color:var(--muted);font-size:14px}.star{border:1px solid var(--hair);background:transparent;color:var(--muted);border-radius:999px;width:38px;height:38px;cursor:pointer;font-size:18px}.star.saved{background:var(--gold);color:#15100a;border-color:var(--gold)}.feedback{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.feedback button{border:1px solid var(--hair);background:color-mix(in srgb,var(--paper2) 70%,var(--card));color:var(--ink);border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer}.feedback button:hover{border-color:var(--gold)}.feedback .done{background:var(--ink);color:var(--paper)}.readmore{margin-top:12px;border-top:1px solid var(--hair2)}.readmore summary{cursor:pointer;list-style:none;padding:12px 0 0;color:var(--ink);font-weight:850;font-size:13px}.readmore summary::-webkit-details-marker{display:none}.readmore summary::after{content:"＋";float:right;color:var(--gold)}.readmore[open] summary::after{content:"－"}.note-grid{display:grid;grid-template-columns:1fr;gap:9px;margin-top:10px}.note{background:color-mix(in srgb,var(--paper2) 72%,var(--card));border:1px solid var(--hair2);border-radius:14px;padding:10px}.note b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:4px}
+.boards{display:grid;grid-template-columns:1fr;gap:14px}.board{background:var(--card);border:1px solid var(--hair);border-radius:var(--radius);padding:16px;box-shadow:0 8px 26px rgba(25,20,12,.045)}.board h3{font-family:var(--serif);font-size:24px;margin:0 0 12px;letter-spacing:-.025em}.table-like{display:grid;border:1px solid var(--hair);border-radius:16px;overflow:hidden}.tr{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--hair)}.tr:last-child{border-bottom:0}.td{padding:11px;font-size:14px}.td:first-child{background:color-mix(in srgb,var(--paper) 55%,var(--card));font-weight:850;color:var(--ink)}.ladder{display:grid;gap:10px}.step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}.step span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:12px;font-weight:850}.step b{display:block;margin-bottom:2px}.memory-grid{display:grid;grid-template-columns:1fr;gap:14px}.bars{display:grid;gap:9px}.bar-row{display:grid;grid-template-columns:116px 1fr 34px;gap:8px;align-items:center;font-size:13px}.track{height:10px;border:1px solid var(--hair);border-radius:999px;overflow:hidden;background:var(--paper2)}.fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--blue));width:0}.log{max-height:190px;overflow:auto;border:1px solid var(--hair);border-radius:16px;padding:10px;background:color-mix(in srgb,var(--paper2) 70%,var(--card));font-size:12px;color:var(--muted)}.log div{padding:6px 0;border-bottom:1px solid var(--hair2)}.log div:last-child{border-bottom:0}.mem-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.dense .feed{gap:8px}.dense .card-inner{padding:12px}.dense .card h3{font-size:19px}.dense .card p,.dense .readmore{display:none}.bottom-nav{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:flex;justify-content:space-around;gap:6px;padding:8px;border:1px solid var(--hair);border-radius:999px;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(18px);box-shadow:var(--shadow)}.bottom-nav a{font-size:12px;text-decoration:none;color:var(--muted);padding:6px 8px;border-radius:999px}.bottom-nav a:hover{background:var(--hair2);color:var(--ink)}.toast{position:fixed;left:50%;bottom:82px;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:999px;font-size:13px;transition:.22s;z-index:90}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.hidden-file{display:none}
+@media(min-width:760px){.page{padding:26px 24px 98px}.hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr)}.controls{grid-template-columns:1fr;gap:9px}.feed{grid-template-columns:repeat(2,minmax(0,1fr))}.boards,.memory-grid{grid-template-columns:1fr 1fr}.note-grid{grid-template-columns:1fr 1fr}.tr{grid-template-columns:180px 1fr}.bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(690px,calc(100% - 32px))}}
 @media(min-width:1050px){.feed{grid-template-columns:repeat(3,minmax(0,1fr))}.card.feature{grid-column:span 2}.card.feature h3{font-size:32px}.controls{grid-template-columns:1fr auto}.utility{justify-content:flex-end}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
 <div class="page" id="app">
   <header class="masthead" id="top">
-    <div class="topline"><span>Research Intelligence Desk</span><span id="today">2026 · Daily Brief</span></div>
-    <div class="brand">Embodied Intelligence Brief</div>
-    <div class="subbrand"><span class="edition-pill">AIHOT × Robotics Research</span><span>Premium mobile editorial · 中英技术术语保留</span></div>
+    <div class="topline"><span>DR.Hu Personal Research Intelligence</span><span id="today">Daily Brief</span></div>
+    <div class="brand">Embodied Intelligence Desk</div>
+    <div class="subbrand"><span class="pill">AIHOT × Robotics × Long-term Memory</span><span>越读越懂你的专属研究情报台</span></div>
   </header>
 
   <section class="hero-grid" id="overview">
-    <article class="lead">
-      <div class="eyebrow">Executive thesis</div>
-      <h1>从 AI 热点里筛出真正能改变你研究路线的信号。</h1>
-      <p>重点关注 具身智能、大佬观点、论文研究，并将每条信息映射到：未来研究方向、现有实验平台可做性、头部公司能力要求和下一步能力补齐。</p>
-    </article>
-    <aside class="snapshot" aria-label="dashboard metrics">
-      <div class="metric"><div class="num">3</div><div class="lab">Primary themes</div><div class="delta">Embodied · Opinions · Papers</div></div>
-      <div class="metric"><div class="num">6</div><div class="lab">Curated items</div><div class="delta">High signal only</div></div>
-      <div class="metric"><div class="num">4</div><div class="lab">Research lenses</div><div class="delta">Direction · Platform · Skills · Publication</div></div>
-      <div class="metric"><div class="num">1</div><div class="lab">Core objective</div><div class="delta">Build real-robot embodied autonomy</div></div>
-    </aside>
+    <article class="lead"><div class="eyebrow">Personal thesis</div><h1>把 AI 热点转化成你的研究路线、能力路线和论文路线。</h1><p>网页会记录你收藏、已读、偏好反馈和阅读历史，自动调整 topic weights，让高相关内容优先出现。当前记忆保存在你的浏览器本地，不公开上传。</p></article>
+    <aside class="snapshot"><div class="metric"><div class="num" id="savedMetric">0</div><div class="lab">Saved items</div><div class="delta">长期关注条目</div></div><div class="metric"><div class="num" id="readMetric">0</div><div class="lab">Read items</div><div class="delta">阅读记录</div></div><div class="metric"><div class="num" id="topMetric">—</div><div class="lab">Top interest</div><div class="delta">自动学习</div></div><div class="metric"><div class="num" id="memoryMetric">Local</div><div class="lab">Memory mode</div><div class="delta">Browser storage</div></div></aside>
   </section>
 
-  <section class="control-shell" aria-label="brief controls">
-    <div class="controls">
-      <div class="searchbar">
-        <input id="search" type="search" placeholder="Search: VLA, robot learning, ROS2, sim-to-real, RA-L..." autocomplete="off" />
-        <button class="btn icon" id="themeBtn" title="切换夜间模式">◐</button>
-      </div>
-      <div class="utility">
-        <button class="chip active" data-filter="all">全部</button>
-        <button class="chip" data-filter="embodied">具身智能</button>
-        <button class="chip" data-filter="opinion">大佬观点</button>
-        <button class="chip" data-filter="paper">论文研究</button>
-        <button class="chip" data-filter="career">能力/招聘</button>
-        <button class="chip priority" data-priority="high">High Priority</button>
-        <button class="chip" id="savedOnly">收藏</button>
-        <button class="btn" id="densityBtn">Dense view</button>
-        <button class="btn" id="expandBtn">Expand all</button>
-      </div>
-    </div>
-  </section>
+  <section class="control-shell"><div class="controls"><div class="searchbar"><input id="search" type="search" placeholder="Search: VLA, robot learning, ROS2, sim-to-real, RA-L..." autocomplete="off"/><button class="btn icon" id="themeBtn">◐</button></div><div class="utility"><button class="chip active" data-filter="all">全部</button><button class="chip" data-filter="embodied">具身智能</button><button class="chip" data-filter="opinion">大佬观点</button><button class="chip" data-filter="paper">论文研究</button><button class="chip" data-filter="career">能力/招聘</button><button class="chip priority" data-priority="high">High Priority</button><button class="chip" id="savedOnly">收藏</button><button class="btn" id="densityBtn">Dense view</button><button class="btn" id="expandBtn">Expand all</button><button class="btn" id="sortBtn">Smart sort: on</button></div></div></section>
 
-  <section id="briefs">
-    <div class="section-head"><h2>Today's Intelligence</h2><span class="count" id="count">6 items</span></div>
-    <div class="empty" id="empty">没有匹配结果。试试清空搜索或切换分类。</div>
-    <div class="feed" id="feed">
-      <article class="card feature" data-id="capitalization" data-cat="embodied career" data-priority="high" data-text="宇树 humanoid legged robotics capital deployment mass production real robot validation 具身智能 六足">
-        <div class="card-inner">
-          <div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Embodied AI</span><span class="tag">Industry Signal</span></div><h3>具身智能从 demo 进入 capital + deployment + mass-production 验证。</h3></div><button class="star" aria-label="收藏">☆</button></div>
-          <p>行业信号不只是融资和发布会，更重要的是：真实场景部署、供应链能力、可靠性指标和规模化维护正在成为核心竞争点。</p>
-          <details class="readmore"><summary>Analyst note</summary><div class="note-grid"><div class="note"><b>Research implication</b>你更适合沿着 real-robot embodied autonomy 做长期主线，而不是盲追纯 VLA/humanoid end-to-end。</div><div class="note"><b>Platform fit</b>六足机器人 + depth sensing + cluttered target following 可以支撑 safety-aware navigation / benchmark / system paper。</div><div class="note"><b>Capability gap</b>补 deployment engineering：日志、故障分类、重复实验、自动化评估。</div><div class="note"><b>Publication angle</b>RA-L/IROS 更吃 evidence chain：real-robot trials、credible baselines、failure analysis。</div></div></details>
-        </div>
-      </article>
+  <section id="briefs"><div class="section-head"><h2>Today's Intelligence</h2><span class="count" id="count">6 items</span></div><div class="empty" id="empty">没有匹配结果。清空搜索或切换分类。</div><div class="feed" id="feed">
+    <article class="card feature" data-id="capitalization" data-tags="embodied,career,deployment,real-robot,benchmark" data-cat="embodied career" data-priority="high" data-title="具身智能从 demo 进入 capital deployment mass-production 验证"><div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Embodied AI</span><span class="tag">Industry Signal</span></div><h3>具身智能从 demo 进入 capital + deployment + mass-production 验证。</h3></div><button class="star">☆</button></div><p>行业信号的重点是真实场景部署、供应链能力、可靠性指标和规模化维护。</p><details class="readmore"><summary>Analyst note</summary><div class="note-grid"><div class="note"><b>Research implication</b>适合沿着 real-robot embodied autonomy 做长期主线。</div><div class="note"><b>Platform fit</b>六足机器人 + depth sensing + cluttered target following 可支撑 safety-aware navigation / benchmark。</div><div class="note"><b>Capability gap</b>补 deployment engineering：日志、故障分类、重复实验、自动化评估。</div><div class="note"><b>Publication angle</b>RA-L/IROS 更看重 evidence chain：real-robot trials、credible baselines、failure analysis。</div></div></details><div class="feedback"><button data-fb="more">More like this</button><button data-fb="less">Less</button><button data-fb="irrelevant">Irrelevant</button><button data-fb="read">Mark read</button></div></div></article>
+    <article class="card" data-id="agent-harness" data-tags="opinion,career,agent,router,workflow,system-engineering" data-cat="opinion career" data-priority="high" data-title="Agent 工程核心从 prompt 转向 harness router workflow"><div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Big-shot Opinion</span></div><h3>Agent 工程的核心从 prompt 转向 harness、router 与 workflow。</h3></div><button class="star">☆</button></div><p>强模型只是组件。可用 Agent 需要上下文管理、工具编排、成本控制、失败恢复和任务路由。</p><details class="readmore"><summary>Research mapping</summary><div class="note-grid"><div class="note"><b>Robotics analogy</b>high-level intent → local perception → safety layer → controller。</div><div class="note"><b>Future topic</b>Risk-aware embodied agent：VLM 做 high-level intent，低层由可验证安全仲裁执行。</div></div></details><div class="feedback"><button data-fb="more">More like this</button><button data-fb="less">Less</button><button data-fb="irrelevant">Irrelevant</button><button data-fb="read">Mark read</button></div></div></article>
+    <article class="card" data-id="vlm-risk" data-tags="paper,embodied,vlm,vla,safety,robustness,control" data-cat="paper embodied" data-priority="high" data-title="VLM VLA 鲁棒性是 embodied closed-loop control 风险"><div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Paper</span><span class="tag">Safety</span></div><h3>VLM/VLA 的鲁棒性问题仍是 embodied closed-loop control 的硬风险。</h3></div><button class="star">☆</button></div><p>视觉语言推理可能受误导上下文、错误 CoT 和场景偏差影响。真实机器人闭环不能无校验依赖 language reasoning。</p><details class="readmore"><summary>What to do with it</summary><div class="note-grid"><div class="note"><b>Research direction</b>VLM high-level semantic cue + local geometric safety arbitration。</div><div class="note"><b>Skill path</b>补 VLM API/本地模型调用、ROS bridge、semantic target selection。</div></div></details><div class="feedback"><button data-fb="more">More like this</button><button data-fb="less">Less</button><button data-fb="irrelevant">Irrelevant</button><button data-fb="read">Mark read</button></div></div></article>
+    <article class="card" data-id="multi-agent" data-tags="paper,opinion,arbitration,multi-agent,conflict,expert-routing" data-cat="paper opinion" data-priority="high" data-title="Multi-agent 关键是 expertise routing 与 conflict resolution"><div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Arbitration</span></div><h3>Multi-agent 不一定更强：关键是 expertise routing 与 conflict resolution。</h3></div><button class="star">☆</button></div><p>多个专家意见被简单平均可能导致性能下降。机器人里的 goal/safety、semantic/geometric、tracking/avoidance 都是仲裁问题。</p><details class="readmore"><summary>Why it matters</summary><div class="note-grid"><div class="note"><b>Concept transfer</b>把“多专家冲突”抽象成 command-space arbitration。</div><div class="note"><b>Next paper seed</b>Generalized conflict arbitration for embodied navigation with heterogeneous proposal sources。</div></div></details><div class="feedback"><button data-fb="more">More like this</button><button data-fb="less">Less</button><button data-fb="irrelevant">Irrelevant</button><button data-fb="read">Mark read</button></div></div></article>
+    <article class="card" data-id="video-memory" data-tags="paper,embodied,world-model,video-memory,perception" data-cat="paper embodied" data-priority="medium" data-title="Video tokenization long-horizon visual memory robot world model"><div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag medium">Medium</span><span class="tag">Research Trend</span></div><h3>Video tokenization 与 long-horizon visual memory 会影响 robot world model。</h3></div><button class="star">☆</button></div><p>更高效的视频表示会改变机器人能观察多长时间、保留多少环境状态，以及是否能做长期任务推理。</p><details class="readmore"><summary>Practical boundary</summary><div class="note-grid"><div class="note"><b>Do next</b>先做 short obstacle memory、failure replay、scene-change awareness。</div><div class="note"><b>Platform fit</b>已有 depth/local map，可做轻量 temporal memory。</div></div></details><div class="feedback"><button data-fb="more">More like this</button><button data-fb="less">Less</button><button data-fb="irrelevant">Irrelevant</button><button data-fb="read">Mark read</button></div></div></article>
+    <article class="card" data-id="career-stack" data-tags="career,embodied,robot-learning,control,ros2,cpp,sim-to-real,deployment" data-cat="career embodied" data-priority="high" data-title="头部 robotics 公司 robot learning control deployment 能力组合"><div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Capability Stack</span></div><h3>头部 robotics 公司要的是 robot learning + control + deployment 组合能力。</h3></div><button class="star">☆</button></div><p>简历竞争力来自“能把机器人跑起来”：perception、planning、control、ROS/C++/Python、sim-to-real、数据闭环、日志诊断。</p><details class="readmore"><summary>Capability roadmap</summary><div class="note-grid"><div class="note"><b>Short term</b>DWA/TEB/MPC/CBF-QP baseline、统计检验、failure taxonomy。</div><div class="note"><b>Mid term</b>ROS2/Nav2、C++、experiment automation、telemetry dashboard。</div><div class="note"><b>Long term</b>RL sim-to-real、VLA high-level planning、benchmark/data pipeline。</div><div class="note"><b>Output</b>把平台包装成 repeatable real-robot evaluation system。</div></div></details><div class="feedback"><button data-fb="more">More like this</button><button data-fb="less">Less</button><button data-fb="irrelevant">Irrelevant</button><button data-fb="read">Mark read</button></div></div></article>
+  </div></section>
 
-      <article class="card" data-id="agent-harness" data-cat="opinion career" data-priority="high" data-text="agent harness engineering aiware router workflow context cost tool orchestration 大佬观点 系统工程">
-        <div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Big-shot Opinion</span></div><h3>Agent 工程的核心从 prompt 转向 harness、router 与 workflow。</h3></div><button class="star" aria-label="收藏">☆</button></div><p>强模型只是组件。真正可用的 Agent 需要上下文管理、工具编排、成本控制、失败恢复和任务路由。</p><details class="readmore"><summary>Research mapping</summary><div class="note-grid"><div class="note"><b>Robotics analogy</b>机器人系统同样需要分层：high-level intent → local perception → safety layer → controller。</div><div class="note"><b>Future topic</b>Risk-aware embodied agent：LLM/VLM 只做 high-level intent，低层由可验证安全仲裁执行。</div></div></details></div>
-      </article>
+  <section id="memory"><div class="section-head"><h2>Memory Console</h2><span class="count">你的长期偏好</span></div><div class="memory-grid"><article class="board"><h3>Preference weights</h3><div class="bars" id="bars"></div><div class="mem-actions"><button class="btn" id="exportBtn">Export memory</button><button class="btn" id="importBtn">Import memory</button><button class="btn" id="resetBtn">Reset memory</button><input class="hidden-file" type="file" id="importFile" accept="application/json"/></div></article><article class="board"><h3>Reading history</h3><div class="log" id="historyLog"></div></article></div></section>
 
-      <article class="card" data-id="vlm-risk" data-cat="paper embodied" data-priority="high" data-text="vlm vla robustness chain of thought faithful reasoning robot closed loop safety paper 论文研究">
-        <div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Paper</span><span class="tag">Safety</span></div><h3>VLM/VLA 的鲁棒性问题仍是 embodied closed-loop control 的硬风险。</h3></div><button class="star" aria-label="收藏">☆</button></div><p>视觉语言推理可能受误导上下文、错误 CoT 和场景偏差影响。真实机器人闭环不宜完全依赖 language reasoning。</p><details class="readmore"><summary>What to do with it</summary><div class="note-grid"><div class="note"><b>Research direction</b>VLM high-level semantic cue + local geometric safety arbitration，比端到端 VLA 更适配你当前平台。</div><div class="note"><b>Skill path</b>补 VLM API/本地模型调用、ROS bridge、semantic target selection，但底层控制保持 deterministic/safety-aware。</div></div></details></div>
-      </article>
-
-      <article class="card" data-id="multi-agent" data-cat="paper opinion" data-priority="high" data-text="multi agent expert routing conflict resolution arbitration naive fusion paper 论文 大佬观点">
-        <div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Arbitration</span></div><h3>Multi-agent 不一定更强：真正关键是 expertise routing 与 conflict resolution。</h3></div><button class="star" aria-label="收藏">☆</button></div><p>多个专家意见被简单平均可能导致性能下降。对机器人来说，goal/safety、semantic/geometric、tracking/avoidance 都是冲突仲裁问题。</p><details class="readmore"><summary>Why it matters</summary><div class="note-grid"><div class="note"><b>Concept transfer</b>把“多专家冲突”抽象成 command-space arbitration，是你现有积累可扩展的理论包装。</div><div class="note"><b>Next paper seed</b>Beyond PCR-Net: generalized conflict arbitration for embodied navigation with heterogeneous proposal sources。</div></div></details></div>
-      </article>
-
-      <article class="card" data-id="video-memory" data-cat="paper embodied" data-priority="medium" data-text="video tokenization world model visual memory long horizon robot perception paper">
-        <div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag medium">Medium</span><span class="tag">Research Trend</span></div><h3>Video tokenization 与 long-horizon visual memory 会影响下一代 robot world model。</h3></div><button class="star" aria-label="收藏">☆</button></div><p>更高效的视频表示会改变机器人能观察多长时间、能保留多少环境状态，以及是否能做长期任务推理。</p><details class="readmore"><summary>Practical boundary</summary><div class="note-grid"><div class="note"><b>Do not overreach</b>短期不建议直接做大规模 world model；先做 short obstacle memory、failure replay、scene-change awareness。</div><div class="note"><b>Platform fit</b>你已有 depth/local map，可先做轻量 temporal memory，而非大模型视频生成路线。</div></div></details></div>
-      </article>
-
-      <article class="card" data-id="career-stack" data-cat="career embodied" data-priority="high" data-text="robot learning control deployment ROS C++ Python sim-to-real perception planning data pipeline recruiting 头部公司招聘">
-        <div class="card-inner"><div class="card-top"><div><div class="kicker-row"><span class="tag high">High Priority</span><span class="tag">Capability Stack</span></div><h3>头部 robotics 公司要的是 robot learning + control + deployment 的组合能力。</h3></div><button class="star" aria-label="收藏">☆</button></div><p>简历竞争力来自“能把机器人跑起来”：perception、planning、control、ROS/C++/Python、sim-to-real、数据闭环、日志诊断和真实机器人调试。</p><details class="readmore"><summary>Capability roadmap</summary><div class="note-grid"><div class="note"><b>Short term</b>DWA/TEB/MPC/CBF-QP baseline、统计检验、failure taxonomy。</div><div class="note"><b>Mid term</b>ROS2/Nav2、C++、experiment automation、telemetry dashboard。</div><div class="note"><b>Long term</b>RL sim-to-real、VLA high-level planning、benchmark/data pipeline。</div><div class="note"><b>Output</b>把你的平台包装成 repeatable real-robot evaluation system。</div></div></details></div>
-      </article>
-    </div>
-  </section>
-
-  <section id="matrix">
-    <div class="section-head"><h2>Research Direction Matrix</h2><span class="count">战略映射</span></div>
-    <div class="boards">
-      <article class="board"><h3>Recommended trajectory</h3><div class="table-like"><div class="tr"><div class="td">主线</div><div class="td">Real-robot embodied autonomy under safety, perception and control constraints.</div></div><div class="tr"><div class="td">近期论文</div><div class="td">Risk-aware navigation / credible baseline / real-robot evaluation protocol.</div></div><div class="tr"><div class="td">中期扩展</div><div class="td">VLM/VLA as high-level intent + local safety arbitration.</div></div><div class="tr"><div class="td">避免</div><div class="td">缺少数据和算力时盲做端到端 humanoid foundation model。</div></div></div></article>
-      <article class="board"><h3>Capability gap</h3><div class="table-like"><div class="tr"><div class="td">必须补</div><div class="td">ROS2, C++, local planner baselines, statistics, failure analysis.</div></div><div class="tr"><div class="td">高价值</div><div class="td">sim-to-real, RL policy evaluation, experiment automation, data logging.</div></div><div class="tr"><div class="td">加分项</div><div class="td">VLM toolchain, semantic target selection, lightweight world memory.</div></div><div class="tr"><div class="td">产业对齐</div><div class="td">robot learning engineer / robotics software / system integration & validation.</div></div></div></article>
-    </div>
-  </section>
-
-  <section id="actions">
-    <div class="section-head"><h2>What should I do next</h2><span class="count">本周动作</span></div>
-    <div class="board"><div class="ladder"><div class="step"><span>1</span><div><b>把实验平台产品化</b>固定场景、指标、日志、失败标签、复现实验脚本。</div></div><div class="step"><span>2</span><div><b>补强 baseline credibility</b>选 DWA / TEB / MPC / CBF-QP 中至少一条做扎实参数扫描。</div></div><div class="step"><span>3</span><div><b>建立 weekly paper digestion</b>每周 2 篇 embodied AI / robot learning，只记录可迁移实验设计。</div></div><div class="step"><span>4</span><div><b>工程能力升级</b>ROS2 + C++ + experiment automation，让“会跑实验”升级为“会搭系统”。</div></div></div></div>
-  </section>
+  <section id="matrix"><div class="section-head"><h2>Research Direction Matrix</h2><span class="count">战略映射</span></div><div class="boards"><article class="board"><h3>Recommended trajectory</h3><div class="table-like"><div class="tr"><div class="td">主线</div><div class="td">Real-robot embodied autonomy under safety, perception and control constraints.</div></div><div class="tr"><div class="td">近期论文</div><div class="td">Risk-aware navigation / credible baseline / real-robot evaluation protocol.</div></div><div class="tr"><div class="td">中期扩展</div><div class="td">VLM/VLA as high-level intent + local safety arbitration.</div></div><div class="tr"><div class="td">避免</div><div class="td">缺少数据和算力时盲做端到端 humanoid foundation model。</div></div></div></article><article class="board"><h3>Capability gap</h3><div class="table-like"><div class="tr"><div class="td">必须补</div><div class="td">ROS2, C++, local planner baselines, statistics, failure analysis.</div></div><div class="tr"><div class="td">高价值</div><div class="td">sim-to-real, RL policy evaluation, experiment automation, data logging.</div></div><div class="tr"><div class="td">加分项</div><div class="td">VLM toolchain, semantic target selection, lightweight world memory.</div></div><div class="tr"><div class="td">产业对齐</div><div class="td">robot learning engineer / robotics software / system integration & validation.</div></div></div></article></div></section>
+  <section id="actions"><div class="section-head"><h2>What should I do next</h2><span class="count">本周动作</span></div><div class="board"><div class="ladder"><div class="step"><span>1</span><div><b>把实验平台产品化</b>固定场景、指标、日志、失败标签、复现实验脚本。</div></div><div class="step"><span>2</span><div><b>补强 baseline credibility</b>选 DWA / TEB / MPC / CBF-QP 中至少一条做扎实参数扫描。</div></div><div class="step"><span>3</span><div><b>建立 weekly paper digestion</b>每周 2 篇 embodied AI / robot learning，只记录可迁移实验设计。</div></div><div class="step"><span>4</span><div><b>工程能力升级</b>ROS2 + C++ + experiment automation，让“会跑实验”升级为“会搭系统”。</div></div></div></div></section>
 </div>
-
-<nav class="bottom-nav" aria-label="quick navigation"><a href="#top">Top</a><a href="#briefs">Briefs</a><a href="#matrix">Matrix</a><a href="#actions">Actions</a></nav>
-<div class="toast" id="toast">已更新</div>
-
+<nav class="bottom-nav"><a href="#top">Top</a><a href="#briefs">Briefs</a><a href="#memory">Memory</a><a href="#matrix">Matrix</a><a href="#actions">Actions</a></nav><div class="toast" id="toast">已更新</div>
 <script>
 (function(){
-  const root=document.documentElement;
-  const app=document.getElementById('app');
-  const cards=[...document.querySelectorAll('.card[data-id]')];
-  const filterBtns=[...document.querySelectorAll('[data-filter]')];
-  const priorityBtn=document.querySelector('[data-priority="high"]');
-  const search=document.getElementById('search');
-  const count=document.getElementById('count');
-  const empty=document.getElementById('empty');
-  const densityBtn=document.getElementById('densityBtn');
-  const expandBtn=document.getElementById('expandBtn');
-  const savedOnlyBtn=document.getElementById('savedOnly');
-  const themeBtn=document.getElementById('themeBtn');
-  const toast=document.getElementById('toast');
-  const state={filter:'all', highOnly:false, savedOnly:false, dense:false, expanded:false, q:''};
-  const saved=new Set(JSON.parse(localStorage.getItem('brief.saved')||'[]'));
-  const storedTheme=localStorage.getItem('brief.theme');
-  if(storedTheme) root.dataset.theme=storedTheme;
+  const root=document.documentElement, app=document.getElementById('app'), cards=[...document.querySelectorAll('.card[data-id]')], feed=document.getElementById('feed');
+  const filterBtns=[...document.querySelectorAll('[data-filter]')], priorityBtn=document.querySelector('[data-priority="high"]'), search=document.getElementById('search'), count=document.getElementById('count'), empty=document.getElementById('empty'), densityBtn=document.getElementById('densityBtn'), expandBtn=document.getElementById('expandBtn'), savedOnlyBtn=document.getElementById('savedOnly'), sortBtn=document.getElementById('sortBtn'), themeBtn=document.getElementById('themeBtn'), toast=document.getElementById('toast');
+  const defaultWeights={embodied:8,paper:6,career:6,opinion:4,'robot-learning':6,control:6,deployment:6,'real-robot':7,benchmark:5,vlm:4,vla:4,ros2:5,cpp:4,'sim-to-real':5,arbitration:7};
+  let memory=JSON.parse(localStorage.getItem('drhu.memory.v2')||'null')||{weights:defaultWeights,saved:[],read:[],hidden:[],events:[],createdAt:new Date().toISOString()};
+  memory.weights={...defaultWeights,...memory.weights};
+  let state={filter:'all',highOnly:false,savedOnly:false,dense:localStorage.getItem('brief.dense')==='1',expanded:false,q:'',smartSort:true};
+  const storedTheme=localStorage.getItem('brief.theme'); if(storedTheme) root.dataset.theme=storedTheme; if(state.dense){app.classList.add('dense'); densityBtn.textContent='Card view'}
+  function save(){memory.updatedAt=new Date().toISOString();localStorage.setItem('drhu.memory.v2',JSON.stringify(memory));updateMemoryUI();}
   function ping(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1300)}
-  function saveStars(){localStorage.setItem('brief.saved',JSON.stringify([...saved]));}
-  function normalize(s){return (s||'').toLowerCase().trim();}
-  cards.forEach(card=>{
-    const btn=card.querySelector('.star'); const id=card.dataset.id;
-    if(saved.has(id)){btn.classList.add('saved'); btn.textContent='★'}
-    btn.addEventListener('click',e=>{e.stopPropagation(); if(saved.has(id)){saved.delete(id);btn.classList.remove('saved');btn.textContent='☆';ping('已取消收藏')}else{saved.add(id);btn.classList.add('saved');btn.textContent='★';ping('已收藏')} saveStars(); apply();});
-  });
+  function tags(card){return (card.dataset.tags||'').split(',').map(s=>s.trim()).filter(Boolean)}
+  function title(card){return card.dataset.title||card.querySelector('h3')?.innerText||card.dataset.id}
+  function log(type,card,detail=''){memory.events.unshift({time:new Date().toISOString(),type,id:card?.dataset?.id,title:card?title(card):detail,tags:card?tags(card):[]});memory.events=memory.events.slice(0,80)}
+  function adjust(card,delta){tags(card).forEach(t=>{memory.weights[t]=(memory.weights[t]||0)+delta;if(memory.weights[t]<0)memory.weights[t]=0;if(memory.weights[t]>20)memory.weights[t]=20});}
+  function score(card){return tags(card).reduce((s,t)=>s+(memory.weights[t]||0),0)+(card.dataset.priority==='high'?8:0)+(memory.saved.includes(card.dataset.id)?5:0)-(memory.hidden.includes(card.dataset.id)?999:0)}
+  function normalize(s){return (s||'').toLowerCase().trim()}
+  function initCards(){cards.forEach(card=>{const id=card.dataset.id, star=card.querySelector('.star'); if(memory.saved.includes(id)){star.classList.add('saved');star.textContent='★'} if(memory.read.includes(id))card.classList.add('read'); star.addEventListener('click',e=>{e.stopPropagation(); if(memory.saved.includes(id)){memory.saved=memory.saved.filter(x=>x!==id);star.classList.remove('saved');star.textContent='☆';log('unsave',card);ping('已取消收藏')}else{memory.saved.push(id);star.classList.add('saved');star.textContent='★';adjust(card,2);log('save',card);ping('已收藏，偏好权重已提升')} save();apply();}); card.querySelectorAll('[data-fb]').forEach(btn=>btn.addEventListener('click',()=>{const fb=btn.dataset.fb; if(fb==='more'){adjust(card,2);log('more-like-this',card);ping('已学习：多推类似内容')} if(fb==='less'){adjust(card,-2);log('less-like-this',card);ping('已学习：降低类似内容')} if(fb==='irrelevant'){if(!memory.hidden.includes(id))memory.hidden.push(id);adjust(card,-3);log('irrelevant',card);ping('已隐藏并降低权重')} if(fb==='read'){markRead(card)} save();apply();})); card.querySelector('.readmore')?.addEventListener('toggle',e=>{if(e.target.open)markRead(card,false);});});}
+  function markRead(card,notify=true){const id=card.dataset.id;if(!memory.read.includes(id)){memory.read.push(id);card.classList.add('read');adjust(card,.5);log('read',card);save();if(notify)ping('已标记已读')}}
+  function apply(){if(state.smartSort){cards.sort((a,b)=>score(b)-score(a)).forEach(c=>feed.appendChild(c));} let shown=0;cards.forEach(card=>{const cats=(card.dataset.cat||'').split(' '), pri=card.dataset.priority, text=normalize(card.innerText+' '+card.dataset.title+' '+card.dataset.tags), id=card.dataset.id; const okFilter=state.filter==='all'||cats.includes(state.filter), okPri=!state.highOnly||pri==='high', okSaved=!state.savedOnly||memory.saved.includes(id), okSearch=!state.q||text.includes(state.q), okHidden=!memory.hidden.includes(id); const ok=okFilter&&okPri&&okSaved&&okSearch&&okHidden; card.style.display=ok?'':'none'; if(ok)shown++;});count.textContent=shown+' item'+(shown===1?'':'s');empty.classList.toggle('show',shown===0);updateMemoryUI();}
+  function updateMemoryUI(){document.getElementById('savedMetric').textContent=memory.saved.length;document.getElementById('readMetric').textContent=memory.read.length;const sorted=Object.entries(memory.weights).sort((a,b)=>b[1]-a[1]);document.getElementById('topMetric').textContent=sorted[0]?.[0]||'—';const bars=document.getElementById('bars');bars.innerHTML='';sorted.slice(0,10).forEach(([k,v])=>{const row=document.createElement('div');row.className='bar-row';row.innerHTML='<span>'+k+'</span><div class="track"><div class="fill" style="width:'+Math.min(100,v*5)+'%"></div></div><b>'+v.toFixed(1)+'</b>';bars.appendChild(row)});const logBox=document.getElementById('historyLog');logBox.innerHTML=memory.events.length?memory.events.slice(0,18).map(e=>'<div><b>'+new Date(e.time).toLocaleString('zh-CN')+'</b><br>'+e.type+' · '+(e.title||'')+'</div>').join(''):'<div>暂无记录。点击收藏、More like this 或展开分析后会生成历史。</div>';}
   filterBtns.forEach(btn=>btn.addEventListener('click',()=>{filterBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.filter=btn.dataset.filter;apply();}));
-  priorityBtn.addEventListener('click',()=>{state.highOnly=!state.highOnly;priorityBtn.classList.toggle('active',state.highOnly);apply();});
-  savedOnlyBtn.addEventListener('click',()=>{state.savedOnly=!state.savedOnly;savedOnlyBtn.classList.toggle('active',state.savedOnly);apply();});
-  search.addEventListener('input',()=>{state.q=normalize(search.value);apply();});
-  densityBtn.addEventListener('click',()=>{state.dense=!state.dense;app.classList.toggle('dense',state.dense);densityBtn.textContent=state.dense?'Card view':'Dense view';localStorage.setItem('brief.dense',state.dense?'1':'0');});
-  if(localStorage.getItem('brief.dense')==='1'){state.dense=true;app.classList.add('dense');densityBtn.textContent='Card view'}
-  expandBtn.addEventListener('click',()=>{state.expanded=!state.expanded;document.querySelectorAll('.readmore').forEach(d=>d.open=state.expanded);expandBtn.textContent=state.expanded?'Collapse all':'Expand all'});
-  themeBtn.addEventListener('click',()=>{const next=root.dataset.theme==='night'?'':'night'; if(next){root.dataset.theme=next;localStorage.setItem('brief.theme',next);ping('夜间模式')}else{delete root.dataset.theme;localStorage.removeItem('brief.theme');ping('日间模式')}});
-  function apply(){
-    let shown=0;
-    cards.forEach(card=>{
-      const cats=(card.dataset.cat||'').split(' '); const pri=card.dataset.priority; const text=normalize(card.innerText+' '+card.dataset.text);
-      const okFilter=state.filter==='all'||cats.includes(state.filter);
-      const okPri=!state.highOnly||pri==='high';
-      const okSaved=!state.savedOnly||saved.has(card.dataset.id);
-      const okSearch=!state.q||text.includes(state.q);
-      const ok=okFilter&&okPri&&okSaved&&okSearch;
-      card.style.display=ok?'':'none'; if(ok) shown++;
-    });
-    count.textContent=shown+' item'+(shown===1?'':'s');
-    empty.classList.toggle('show',shown===0);
-  }
-  window.addEventListener('scroll',()=>{const doc=document.documentElement; const max=doc.scrollHeight-doc.clientHeight; const pct=max>0?(doc.scrollTop/max)*100:0; document.getElementById('progress').style.width=pct+'%';},{passive:true});
-  document.getElementById('today').textContent=new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'})+' · Asia/Tokyo';
-  apply();
+  priorityBtn.addEventListener('click',()=>{state.highOnly=!state.highOnly;priorityBtn.classList.toggle('active',state.highOnly);apply();});savedOnlyBtn.addEventListener('click',()=>{state.savedOnly=!state.savedOnly;savedOnlyBtn.classList.toggle('active',state.savedOnly);apply();});search.addEventListener('input',()=>{state.q=normalize(search.value);apply();});densityBtn.addEventListener('click',()=>{state.dense=!state.dense;app.classList.toggle('dense',state.dense);densityBtn.textContent=state.dense?'Card view':'Dense view';localStorage.setItem('brief.dense',state.dense?'1':'0');});expandBtn.addEventListener('click',()=>{state.expanded=!state.expanded;document.querySelectorAll('.readmore').forEach(d=>d.open=state.expanded);expandBtn.textContent=state.expanded?'Collapse all':'Expand all';});sortBtn.addEventListener('click',()=>{state.smartSort=!state.smartSort;sortBtn.textContent='Smart sort: '+(state.smartSort?'on':'off');sortBtn.classList.toggle('active',state.smartSort);apply();});themeBtn.addEventListener('click',()=>{const next=root.dataset.theme==='night'?'':'night'; if(next){root.dataset.theme=next;localStorage.setItem('brief.theme',next);ping('夜间模式')}else{delete root.dataset.theme;localStorage.removeItem('brief.theme');ping('日间模式')}});
+  document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(memory,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='drhu-intelligence-memory.json';a.click();URL.revokeObjectURL(a.href);ping('记忆已导出')});document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());document.getElementById('importFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{memory=JSON.parse(await file.text());save();location.reload()}catch(err){ping('导入失败：JSON 无效')}});document.getElementById('resetBtn').addEventListener('click',()=>{if(confirm('确认清空本地记忆？')){localStorage.removeItem('drhu.memory.v2');location.reload()}});
+  window.addEventListener('scroll',()=>{const doc=document.documentElement,max=doc.scrollHeight-doc.clientHeight,pct=max>0?(doc.scrollTop/max)*100:0;document.getElementById('progress').style.width=pct+'%'},{passive:true});document.getElementById('today').textContent=new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'})+' · Asia/Tokyo';
+  if(!memory.events.some(e=>e.type==='visit'&&new Date(e.time).toDateString()===new Date().toDateString())){memory.events.unshift({time:new Date().toISOString(),type:'visit',title:'Opened daily desk'});memory.events=memory.events.slice(0,80);save();}
+  initCards();apply();
 })();
 </script>
 </body>
