@@ -12,10 +12,10 @@
       body.scroll-reveal-enabled .readmore summary::before{content:"";display:inline-block;width:32px;height:1px;background:var(--news-rule);transform-origin:left center;transform:scaleX(var(--story-progress));opacity:.78}
       body.scroll-reveal-enabled .readmore summary::after{content:"＋"!important;color:var(--news-rule)!important;opacity:calc(.45 + var(--story-progress) * .45);transform:rotate(calc(var(--story-progress) * 45deg));transition:transform .18s linear,opacity .18s linear}
       body.scroll-reveal-enabled .brief-body{display:grid!important;gap:12px!important;max-height:var(--reveal-height)!important;opacity:var(--reveal-opacity)!important;transform:translateY(var(--reveal-y))!important;overflow:hidden!important;filter:none!important;padding-top:calc(var(--story-progress) * 12px)!important;transition:none!important;will-change:max-height,opacity,transform}
-      body.scroll-reveal-enabled .analysis-panel{opacity:calc(.18 + var(--story-progress) * .82);transform:translateY(calc((1 - var(--story-progress)) * 8px));transition:none!important}
-      body.scroll-reveal-enabled .story-row .deck{opacity:calc(.72 + var(--story-progress) * .28);transition:opacity .18s linear}
-      body.scroll-reveal-enabled .scroll-reading-marker{position:fixed;right:18px;top:50%;width:2px;height:150px;transform:translateY(-50%);z-index:40;background:linear-gradient(180deg,transparent,var(--news-line),transparent);opacity:.22;pointer-events:none}
-      body.scroll-reveal-enabled .scroll-reading-marker::after{content:"";position:absolute;left:-3px;top:50%;width:8px;height:8px;border-radius:999px;background:var(--news-rule);transform:translateY(-50%);box-shadow:0 0 0 4px rgba(157,123,79,.08)}
+      body.scroll-reveal-enabled .analysis-panel{opacity:calc(.30 + var(--story-progress) * .70);transform:translateY(calc((1 - var(--story-progress)) * 6px));transition:none!important}
+      body.scroll-reveal-enabled .story-row .deck{opacity:calc(.82 + var(--story-progress) * .18);transition:opacity .18s linear}
+      body.scroll-reveal-enabled .scroll-reading-marker{position:fixed;right:18px;top:50%;width:2px;height:150px;transform:translateY(-50%);z-index:40;background:linear-gradient(180deg,transparent,var(--news-line),transparent);opacity:.18;pointer-events:none}
+      body.scroll-reveal-enabled .scroll-reading-marker::after{content:"";position:absolute;left:-3px;top:50%;width:8px;height:8px;border-radius:999px;background:var(--news-rule);transform:translateY(-50%);box-shadow:0 0 0 4px rgba(157,123,79,.07)}
       @media(max-width:759px){body.scroll-reveal-enabled .scroll-reading-marker{display:none}body.scroll-reveal-enabled .brief-body{gap:10px!important}}
       @media(prefers-reduced-motion:reduce){body.scroll-reveal-enabled .scroll-reading-marker{display:none!important}body.scroll-reveal-enabled .brief-body{max-height:none!important;opacity:1!important;transform:none!important;padding-top:12px!important}}
     `;
@@ -75,33 +75,43 @@
       cards.forEach(card=>{card.dataset.fullHeight=String(measure(card));});
       request();
     }
+    function progressForRect(r,vh){
+      const centerBandTop=vh*0.34;
+      const centerBandBottom=vh*0.66;
+      const softTop=vh*0.08;
+      const softBottom=vh*0.92;
+      const coversCenterBand = r.top < centerBandBottom && r.bottom > centerBandTop;
+      if(coversCenterBand) return 1;
+      if(r.top >= centerBandBottom && r.top < softBottom){
+        return smoothstep((softBottom-r.top)/(softBottom-centerBandBottom));
+      }
+      if(r.bottom <= centerBandTop && r.bottom > softTop){
+        return smoothstep((r.bottom-softTop)/(centerBandTop-softTop));
+      }
+      return 0;
+    }
     function update(){
       ticking=false;
       if(prefersReduced) return;
       const vh=window.innerHeight||720;
-      const focusY=vh*0.48;
-      const openRadius=vh*0.56;
       let best=null,bestProgress=0;
       cards.forEach(card=>{
         if(card.style.display==='none') return;
         const r=card.getBoundingClientRect();
-        const center=r.top + Math.min(r.height*0.28,180);
-        const raw=1 - Math.abs(center-focusY)/openRadius;
-        let p=smoothstep(raw);
-        if(r.bottom<vh*0.10 || r.top>vh*0.92) p=0;
-        if(p<0.035) p=0;
+        let p=progressForRect(r,vh);
+        if(p<0.025) p=0;
         if(p>bestProgress){bestProgress=p;best=card;}
         const full=Number(card.dataset.fullHeight||0);
         const height=Math.max(0,Math.round(full*p));
-        const opacity=p<0.08?0:smoothstep((p-0.08)/0.72);
-        const y=Math.round((1-p)*10);
+        const opacity=p<0.04?0:smoothstep((p-0.04)/0.54);
+        const y=Math.round((1-p)*6);
         card.style.setProperty('--story-progress',p.toFixed(4));
         card.style.setProperty('--reveal-height',height+'px');
         card.style.setProperty('--reveal-opacity',opacity.toFixed(4));
         card.style.setProperty('--reveal-y',y+'px');
-        card.classList.toggle('reveal-near',p>.12);
+        card.classList.toggle('reveal-near',p>.10);
       });
-      cards.forEach(card=>card.classList.toggle('reveal-focus',card===best && bestProgress>.16));
+      cards.forEach(card=>card.classList.toggle('reveal-focus',card===best && bestProgress>.20));
     }
     function request(){
       if(ticking) return;
@@ -123,7 +133,7 @@
           card.style.setProperty('--story-progress',p>0.55?'0':'1');
           card.style.setProperty('--reveal-height',(p>0.55?0:Number(card.dataset.fullHeight||measure(card)))+'px');
           card.style.setProperty('--reveal-opacity',p>0.55?'0':'1');
-          card.style.setProperty('--reveal-y',p>0.55?'10px':'0px');
+          card.style.setProperty('--reveal-y',p>0.55?'6px':'0px');
           setTimeout(request,350);
         }
       }
