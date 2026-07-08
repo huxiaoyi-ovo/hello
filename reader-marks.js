@@ -1,15 +1,15 @@
 const DIGEST_MARKS={
-  'warsh-fed-independence':[['保持政治独立，并继续追求 2% 通胀目标','strong'],['5 月通胀三年高点','mark'],['2%','data']],
-  'ecb-grey-zone':[['欧元区经济对冲击的韧性比过去更强','strong'],['5 月通胀为 3.2%','data'],['grey zone','mark']],
-  'gulf-iran-risk':[['美国与伊朗间接谈判没有取得突破','strong'],['Saudi 主指下跌 0.3%','data'],['中东风险已经进入二阶定价','mark']],
-  'korea-chip-590b':[['近 6000 亿美元芯片扩张计划','data'],['Samsung 与 SK Hynix 掌握全球 HBM 市场约 80% 份额','strong'],['AI 基建竞争正在从模型能力转入国家级产能组织','mark']],
-  'bis-ai-capex-bust':[['AI spending spree 若无法兑现预期回报，可能导致融资突然收缩','strong'],['超过 1 万亿美元','data'],['企业付费转成可计量的回报','mark']],
-  'boe-ai-agent-risk':[['AI agents 若用于资产交易或零售支付，可能在速度和规模上放大市场失灵','strong'],['circuit breakers','mark'],['责任链','underline']],
-  'unitree-star-approval':[['计划募资 42 亿元人民币，约 6.194 亿美元','data'],['smart robot manufacturing base','mark'],['机器人行业从 demo 叙事进入财务表叙事','strong']],
-  'china-factory-robots-ai':[['复杂零件识别、搬运、质检和生产监控','strong'],['纺织和鞋服','mark'],['可部署、可维护、可复制的自动化模块','underline']],
-  'brazil-youtube-worldcup':[['免费直播 2026 World Cup 全部 104 场比赛','strong'],['2130 万 simultaneous streams','data'],['入口与语气所有权','mark']],
-  'ap-streaming-july6':[['7 月 6 日至 12 日','data'],['Backrooms 将于 7 月 7 日进入 premium video-on-demand','strong'],['跨媒介同周冲突','mark']],
-  'xbox-platform-crisis':[['subscription-first 的极限','strong'],['687 亿美元并购','data'],['更保守的利润纪律','mark']]
+  'oil-dollar-iran-hormuz-20260708':[['Brent crude 上涨 2.6% 至每桶 76.12 美元','data'],['美元指数升至 101.18','data'],['inflation tail risk','strong'],['增长放缓加能源价格上行','mark']],
+  'yen-boj-fiscal-pressure-20260708':[['10 年期 JGB 收益率触及 2.83%','data'],['财政可信度交易','strong'],['162.8 与 170','data'],['BOJ 加息太慢','mark']],
+  'korea-chip-selloff-samsung-20260708':[['营业利润达到 89.4 万亿韩元','data'],['Philadelphia Semiconductor Index 下跌 4.7%','data'],['利润质量','strong'],['cycle discipline','mark']],
+  'cxmt-apple-china-memory-20260708':[['全球第四大 DRAM 生产商','strong'],['2028 年的 15%','data'],['供应链选择权','mark'],['Apple 测试不等于正式采购','underline']],
+  'eu-steel-ecommerce-china-20260708':[['3 欧元海关税','data'],['1830 万吨免税进口配额','data'],['全球化的低价入口正在被监管重估','strong'],['每单 3 欧元','mark']],
+  'china-robot-hands-20260708':[['月产数千套','data'],['teleoperation、wearable sensors、Wuji Glove','mark'],['末端执行器和数据闭环','strong'],['没有可复用数据','underline']],
+  'skf-leaderdrive-robot-jv-20260708':[['SKF 持股 60%','data'],['2026 年底前开始运营','data'],['部件分层','strong'],['可靠性、寿命和量产','mark']],
+  'multi-robot-agentic-ai-20260708':[['Embodied Collective Intelligence','strong'],['shared world-memory inheritance','mark'],['概念框架','underline'],['6 月 26 日','data']],
+  'youtube-worldcup-cazetv-20260708':[['2026 World Cup 全部 104 场比赛','data'],['creator-led broadcast','strong'],['谁来陪看','mark'],['平台重新包装成社区产品','underline']],
+  'ap-streaming-week-july8-20260708':[['7 月 6 日至 12 日','data'],['《Backrooms》7 月 7 日进入 premium VOD','strong'],['互联网原生恐怖','mark'],['年龄层分割','underline']],
+  'sky-itv-uk-media-20260708':[['16 亿英镑','data'],['2 亿英镑','data'],['本地广告、免费入口和家庭客厅触达','strong'],['资产整合阶段','mark']]
 };
 const USER_READS={};
 const USER_ACTIONS={};
