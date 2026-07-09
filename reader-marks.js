@@ -1,15 +1,14 @@
 const DIGEST_MARKS={
-  'oil-dollar-iran-hormuz-20260708':[['Brent crude 上涨 2.6% 至每桶 76.12 美元','data'],['美元指数升至 101.18','data'],['inflation tail risk','strong'],['增长放缓加能源价格上行','mark']],
-  'yen-boj-fiscal-pressure-20260708':[['10 年期 JGB 收益率触及 2.83%','data'],['财政可信度交易','strong'],['162.8 与 170','data'],['BOJ 加息太慢','mark']],
-  'korea-chip-selloff-samsung-20260708':[['营业利润达到 89.4 万亿韩元','data'],['Philadelphia Semiconductor Index 下跌 4.7%','data'],['利润质量','strong'],['cycle discipline','mark']],
-  'cxmt-apple-china-memory-20260708':[['全球第四大 DRAM 生产商','strong'],['2028 年的 15%','data'],['供应链选择权','mark'],['Apple 测试不等于正式采购','underline']],
-  'eu-steel-ecommerce-china-20260708':[['3 欧元海关税','data'],['1830 万吨免税进口配额','data'],['全球化的低价入口正在被监管重估','strong'],['每单 3 欧元','mark']],
-  'china-robot-hands-20260708':[['月产数千套','data'],['teleoperation、wearable sensors、Wuji Glove','mark'],['末端执行器和数据闭环','strong'],['没有可复用数据','underline']],
-  'skf-leaderdrive-robot-jv-20260708':[['SKF 持股 60%','data'],['2026 年底前开始运营','data'],['部件分层','strong'],['可靠性、寿命和量产','mark']],
-  'multi-robot-agentic-ai-20260708':[['Embodied Collective Intelligence','strong'],['shared world-memory inheritance','mark'],['概念框架','underline'],['6 月 26 日','data']],
-  'youtube-worldcup-cazetv-20260708':[['2026 World Cup 全部 104 场比赛','data'],['creator-led broadcast','strong'],['谁来陪看','mark'],['平台重新包装成社区产品','underline']],
-  'ap-streaming-week-july8-20260708':[['7 月 6 日至 12 日','data'],['《Backrooms》7 月 7 日进入 premium VOD','strong'],['互联网原生恐怖','mark'],['年龄层分割','underline']],
-  'sky-itv-uk-media-20260708':[['16 亿英镑','data'],['2 亿英镑','data'],['本地广告、免费入口和家庭客厅触达','strong'],['资产整合阶段','mark']]
+  'oil-fed-iran-20260709':[['Brent 上涨 5.23% 至每桶 78 美元','data'],['3.50% 至 3.75%','data'],['energy inflation tail','strong'],['Fed 的容错空间压窄','mark']],
+  'japan-yen-boj-20260709':[['10 年期 JGB 收益率升至 2.865%','data'],['美元兑日元在 162.46 附近','data'],['财政可信度折价','strong'],['进口通胀','mark']],
+  'korea-memory-selloff-20260709':[['Samsung Electronics 午后最大跌幅达到 7.6%','data'],['SK Hynix 下跌 5.2%','data'],['margin durability','strong'],['产能纪律','mark']],
+  'nvidia-h200-china-20260709':[['少于 20 万颗','data'],['高端算力进入配给状态','strong'],['抢少量 Nvidia','mark'],['实际交付之间仍存在审批、数量和时间差','underline']],
+  'apple-broadcom-us-sourcing-20260709':[['超过 300 亿美元','data'],['至少 150 亿颗芯片','data'],['connectivity components','strong'],['长期订单换美国制造确定性','mark']],
+  'unitree-ipo-robotics-20260709':[['42 亿元人民币','data'],['至少 4045 万股','data'],['manufacturing company 的审计阶段','strong'],['售后成本','mark']],
+  'dexterous-hands-china-20260709':[['月产数千套','data'],['teleoperation、wearable sensors 和 Wuji Glove','mark'],['可靠末端执行器','strong'],['高质量触觉数据','underline']],
+  'worldcup-cazetv-youtube-20260709':[['104 场比赛','data'],['creator logic','strong'],['陪看关系','mark'],['巴西不能直接代表全球','underline']],
+  'ap-streaming-week-20260709':[['7 月 6 至 12 日','data'],['《Backrooms》7 月 7 日进入 premium VOD','data'],['互联网原生恐怖','strong'],['多资产组合','mark']],
+  'apple-tv-top-movies-20260709':[['7 月 7 日榜单','data'],['《Obsession (2026)》排名第一','data'],['续作、名人传记和高概念类型片','strong'],['家庭端电影消费','mark']]
 };
 const USER_READS={};
 const USER_ACTIONS={};
