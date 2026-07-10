@@ -1,14 +1,14 @@
 const DIGEST_MARKS={
-  'oil-fed-iran-20260709':[['Brent 上涨 5.23% 至每桶 78 美元','data'],['3.50% 至 3.75%','data'],['energy inflation tail','strong'],['Fed 的容错空间压窄','mark']],
-  'japan-yen-boj-20260709':[['10 年期 JGB 收益率升至 2.865%','data'],['美元兑日元在 162.46 附近','data'],['财政可信度折价','strong'],['进口通胀','mark']],
-  'korea-memory-selloff-20260709':[['Samsung Electronics 午后最大跌幅达到 7.6%','data'],['SK Hynix 下跌 5.2%','data'],['margin durability','strong'],['产能纪律','mark']],
-  'nvidia-h200-china-20260709':[['少于 20 万颗','data'],['高端算力进入配给状态','strong'],['抢少量 Nvidia','mark'],['实际交付之间仍存在审批、数量和时间差','underline']],
-  'apple-broadcom-us-sourcing-20260709':[['超过 300 亿美元','data'],['至少 150 亿颗芯片','data'],['connectivity components','strong'],['长期订单换美国制造确定性','mark']],
-  'unitree-ipo-robotics-20260709':[['42 亿元人民币','data'],['至少 4045 万股','data'],['manufacturing company 的审计阶段','strong'],['售后成本','mark']],
-  'dexterous-hands-china-20260709':[['月产数千套','data'],['teleoperation、wearable sensors 和 Wuji Glove','mark'],['可靠末端执行器','strong'],['高质量触觉数据','underline']],
-  'worldcup-cazetv-youtube-20260709':[['104 场比赛','data'],['creator logic','strong'],['陪看关系','mark'],['巴西不能直接代表全球','underline']],
-  'ap-streaming-week-20260709':[['7 月 6 至 12 日','data'],['《Backrooms》7 月 7 日进入 premium VOD','data'],['互联网原生恐怖','strong'],['多资产组合','mark']],
-  'apple-tv-top-movies-20260709':[['7 月 7 日榜单','data'],['《Obsession (2026)》排名第一','data'],['续作、名人传记和高概念类型片','strong'],['家庭端电影消费','mark']]
+  'bond-oil-fed-20260710':[['3.50% 至 3.75%','data'],['10 年期美债收益率升至 4.5% 上方','data'],['资金成本','strong'],['更短的回收周期','mark']],
+  'yen-jgb-boj-20260710':[['10 年期 JGB 收益率升至 2.865%','data'],['美元兑日元在 162.46 附近','data'],['财政可信度','strong'],['利差、进口通胀和财政可信度','mark']],
+  'memory-chip-selloff-20260710':[['Samsung Electronics 午后最大跌幅达到 7.6%','data'],['SK Hynix 下跌 5.2%','data'],['margin durability','strong'],['产能纪律','mark']],
+  'nvidia-h200-china-20260710':[['少于 20 万颗','data'],['高端算力进入配给状态','strong'],['审批、数量和时间差','underline'],['低功耗 inference','mark']],
+  'apple-broadcom-rf-20260710':[['超过 300 亿美元','data'],['至少 150 亿颗芯片','data'],['connectivity components','strong'],['长期订单换美国制造确定性','mark']],
+  'unitree-ipo-20260710':[['42 亿元人民币','data'],['至少 4045 万股','data'],['manufacturing company 的审计阶段','strong'],['售后成本','mark']],
+  'dexterous-hands-20260710':[['约月产 5000 只灵巧手','data'],['teleoperation、wearable sensors 和 Wuji Glove','mark'],['可靠末端执行器','strong'],['高质量触觉数据','underline']],
+  'worldcup-country-roads-20260710':[['赛后 30 秒','data'],['可剪辑、可复唱、可参与的情绪资产','strong'],['公共情绪动作','mark'],['不能直接推导球队商业收入或版权收益','underline']],
+  'streaming-menu-20260710':[['7 月 6 至 12 日','data'],['《Backrooms》7 月 7 日进入 premium VOD','data'],['互联网原生恐怖','strong'],['多资产组合','mark']],
+  'summer-movies-pvod-20260710':[['7 月 7 日 Apple TV 美国购买与租赁榜','data'],['《Obsession (2026)》《The Devil Wears Prada 2》《Citizen Vigilante》位居前三','data'],['不同窗口反复收钱','strong'],['家庭端数字电影','mark']]
 };
 const USER_READS={};
 const USER_ACTIONS={};
