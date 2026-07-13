@@ -1,18 +1,35 @@
-const DIGEST_MARKS={"week-ahead-cpi-banks-tsmc-20260713":[["约 23.4%","data"],["证据密集区","strong"],["达标但未上修","underline"]],"oil-inflation-centralbanks-20260713":[["约 6%","data"],["共同变量","strong"],["同向恶化","underline"]],"imf-growth-fragility-20260713":[["3.0%","data"],["4.7%","data"],["联合假设","mark"]],"micron-us-wafer-chain-20260713":[["超过 2500 亿美元","data"],["十年供货协议","strong"],["供给确定性","mark"]],"helium-chipmaking-squeeze-20260713":[["临时暂停 helium 出口","data"],["隐性约束","strong"],["工业气体与超高纯材料","mark"]],"atlas-field-constraints-20260713":[["2028 年","data"],["无线拥塞","strong"],["一次经过准备的公开展示无法证明","underline"]],"dexterous-hands-data-layer-20260713":[["月产约 5000 只灵巧手","data"],["tactile data 与 contact robustness","strong"],["单次流畅 demo 的边际价值持续下降","underline"]],"worldcup-y2k-fashion-20260713":[["7 月 12 日","data"],["nostalgia 正在重写球迷身份","strong"],["跨圈层","mark"]],"moana-live-action-boxoffice-20260713":[["全球开画约 9500 万美元","data"],["制作成本约 2.5 亿美元","data"],["发行节奏与观众饱和","strong"]],"streaming-menu-july13-19-20260713":[["7 月 13–19 日","data"],["单个 marquee title","strong"],["内容库总量对续订的解释力继续下降","underline"]]};
+const DIGEST_MARKS={"week-ahead-cpi-banks-tsmc-20260713":[["约 23.4%","data"],["物价、银行、台积电","strong"],["股价有没有贵得有道理","mark"]],"oil-inflation-centralbanks-20260713":[["约 6%","data"],["油价像隐形税","strong"],["利率也下不来","underline"]],"imf-growth-fragility-20260713":[["3.0%","data"],["4.7%","data"],["抗摔能力变弱","strong"]],"micron-us-wafer-chain-20260713":[["超过 2500 亿美元","data"],["硅晶圆是芯片底板","strong"],["上游材料稳不稳","mark"]],"helium-chipmaking-squeeze-20260713":[["临时暂停氦气出口","data"],["氦气远不止气球用气","strong"],["小东西也会卡住先进制造","mark"]],"atlas-field-constraints-20260713":[["2028 年","data"],["人多、信号挤、草地软","strong"],["真实世界才是门槛","mark"]],"dexterous-hands-data-layer-20260713":[["月产约 5000 只灵巧手","data"],["摸得准、拿得稳","strong"],["失败后重新抓","mark"]],"worldcup-y2k-fashion-20260713":[["世界杯","data"],["复古球衣和 Y2K","strong"],["赛事变成生活方式入口","mark"]],"moana-live-action-boxoffice-20260713":[["约 9500 万美元","data"],["约 2.5 亿美元","data"],["经典 IP 的安全感变贵","strong"]],"streaming-menu-july13-19-20260713":[["7 月 13–19 日","data"],["本周必须打开","strong"],["注意力按周结算","mark"]]};
 const USER_READS={};
 const USER_ACTIONS={};
 (function(){
   function injectStyles(){
-    if(document.getElementById('editorial-mark-styles'))return;
-    const style=document.createElement('style');
-    style.id='editorial-mark-styles';
-    style.textContent=`.digest-reader.editorial-marks{font-family:var(--serif);font-size:16px;line-height:1.92;color:#241e16;background:linear-gradient(180deg,rgba(255,253,248,.94),rgba(246,239,225,.70));border-left:4px solid var(--gold);border-radius:15px;padding:17px 18px}.digest-reader.editorial-marks .digest-lede{font-size:18px;line-height:1.66;font-weight:900}.ed-strong{font-weight:880}.ed-mark{font-weight:780;background:linear-gradient(transparent 66%,rgba(225,185,107,.28) 0)}.ed-underline{text-decoration:underline}.ed-data{font-family:var(--mono);font-weight:780;background:rgba(184,129,47,.10);border-radius:6px;padding:.01em .22em}`;
-    document.head.appendChild(style);
+    if(document.getElementById('reader-marks-styles'))return;
+    const s=document.createElement('style');
+    s.id='reader-marks-styles';
+    s.textContent='.digest-reader.editorial-marks{margin-top:10px}.ed-data,.ed-strong,.ed-mark,.ed-underline{border-radius:4px;padding:0 2px}.ed-data{font-variant-numeric:tabular-nums}.ed-underline{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}';
+    document.head.appendChild(s);
   }
-  function esc(s){return String(s||'').replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
-  function cssEscape(s){return String(s).replace(/(["\\])/g,'\\$1');}
-  function applyOne(html,phrase,type){const safe=esc(phrase);if(!html.includes(safe))return html;const cls={strong:'ed-strong',mark:'ed-mark',underline:'ed-underline',data:'ed-data'}[type]||'ed-strong';return html.replace(safe,`<span class="${cls}">${safe}</span>`);}
-  function buildDigest(id,text){const marks=DIGEST_MARKS[id]||[];const m=text.match(/^(.+?[。！？.!?])(.+)$/s);const lead=m?m[1]:text.slice(0,90);const rest=m?m[2].trim():text.slice(90).trim();let leadHtml=esc(lead),bodyHtml=esc(rest);marks.forEach(([phrase,type])=>{leadHtml=applyOne(leadHtml,phrase,type);bodyHtml=applyOne(bodyHtml,phrase,type);});const paragraphs=bodyHtml.split(/(?<=[。！？])\s*/).filter(Boolean).map(p=>`<p>${p}</p>`).join('');return `<div class="digest-reader editorial-marks" data-editorial-marked="1"><p class="digest-lede">${leadHtml}</p><div class="digest-body">${paragraphs}</div></div>`;}
-  function run(){injectStyles();if(typeof STORIES==='undefined')return false;const feed=document.getElementById('feed');if(!feed||!feed.children.length)return false;let changed=false;STORIES.forEach(function(s){const article=document.querySelector(`.story-row[data-id="${cssEscape(s.id)}"]`);if(!article)return;const panel=article.querySelector('.analysis-panel');if(panel){const old=panel.querySelector('.digest,.digest-reader:not([data-editorial-marked="1"])');if(old){old.outerHTML=buildDigest(s.id,s.digest);changed=true;}}});return changed;}
-  document.addEventListener('DOMContentLoaded',function(){let tries=0;const timer=setInterval(function(){tries++;if(run()||tries>30)clearInterval(timer);},150);const feed=document.getElementById('feed');if(feed&&window.MutationObserver){new MutationObserver(function(){run();}).observe(feed,{childList:true,subtree:true});}});
+  function markText(text,items){
+    let html=String(text||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});
+    (items||[]).forEach(function(pair){
+      const phrase=String(pair[0]||''); const type=String(pair[1]||'mark');
+      if(!phrase)return;
+      const safe=phrase.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      html=html.replace(new RegExp(safe,'g'),'<span class="ed-'+type+'">'+phrase+'</span>');
+    });
+    return html;
+  }
+  function apply(){
+    injectStyles();
+    document.querySelectorAll('.story-row').forEach(function(row){
+      const id=row.getAttribute('data-id');
+      const marks=window.DIGEST_MARKS?window.DIGEST_MARKS[id]:DIGEST_MARKS[id];
+      const digest=row.querySelector('.digest');
+      if(!digest||!marks||digest.dataset.marked)return;
+      digest.innerHTML=markText(digest.textContent,marks);
+      digest.classList.add('digest-reader','editorial-marks');
+      digest.dataset.marked='1';
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(apply,180);});else setTimeout(apply,180);
 })();
