@@ -17,15 +17,15 @@
       body.scroll-reveal-enabled .story-row .deck{opacity:calc(.76 + var(--story-progress) * .24)}
       body.scroll-reveal-enabled .scroll-reading-marker{position:fixed;right:18px;top:50%;width:2px;height:150px;transform:translateY(-50%);z-index:40;background:linear-gradient(180deg,transparent,var(--news-line),transparent);opacity:.16;pointer-events:none}
       body.scroll-reveal-enabled .scroll-reading-marker::after{content:"";position:absolute;left:-3px;top:50%;width:8px;height:8px;border-radius:999px;background:var(--news-rule);transform:translateY(-50%);box-shadow:0 0 0 4px rgba(157,123,79,.07)}
-      body.scroll-reveal-enabled .scroll-soft-mask{position:fixed;left:0;right:0;top:0;height:74px;z-index:38;pointer-events:none;opacity:.26;background:linear-gradient(180deg,var(--news-paper),rgba(243,234,216,0))}
-      body.scroll-reveal-enabled .scroll-soft-mask.bottom{top:auto;bottom:0;height:124px;opacity:.20;background:linear-gradient(0deg,var(--news-paper),rgba(243,234,216,0))}
+      body.scroll-reveal-enabled .scroll-soft-mask{position:fixed;left:0;right:0;top:0;height:96px;z-index:38;pointer-events:none;opacity:.42;background:linear-gradient(180deg,rgba(243,234,216,.96),rgba(243,234,216,.62) 42%,rgba(243,234,216,0));backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);mask-image:linear-gradient(180deg,#000 0%,#000 46%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 46%,transparent 100%)}
+      body.scroll-reveal-enabled .scroll-soft-mask.bottom{top:auto;bottom:0;height:156px;opacity:.34;background:linear-gradient(0deg,rgba(243,234,216,.98),rgba(243,234,216,.66) 38%,rgba(243,234,216,0));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);mask-image:linear-gradient(0deg,#000 0%,#000 42%,transparent 100%);-webkit-mask-image:linear-gradient(0deg,#000 0%,#000 42%,transparent 100%)}
       body.scroll-reveal-enabled #briefs,body.scroll-reveal-enabled #matrix,body.scroll-reveal-enabled .hero{position:relative}
-      body.scroll-reveal-enabled #briefs::before,body.scroll-reveal-enabled #matrix::before{content:"";position:absolute;left:-18px;right:-18px;top:-34px;height:82px;pointer-events:none;background:linear-gradient(180deg,rgba(243,234,216,0),rgba(243,234,216,.58) 45%,rgba(243,234,216,0));z-index:-1}
-      body.scroll-reveal-enabled #matrix{margin-top:46px}
-      [data-theme="night"] body.scroll-reveal-enabled .scroll-soft-mask{background:linear-gradient(180deg,var(--news-paper),rgba(22,19,15,0));opacity:.22}
-      [data-theme="night"] body.scroll-reveal-enabled .scroll-soft-mask.bottom{background:linear-gradient(0deg,var(--news-paper),rgba(22,19,15,0));opacity:.18}
-      [data-theme="night"] body.scroll-reveal-enabled #briefs::before,[data-theme="night"] body.scroll-reveal-enabled #matrix::before{background:linear-gradient(180deg,rgba(22,19,15,0),rgba(22,19,15,.52) 45%,rgba(22,19,15,0))}
-      @media(max-width:759px){body.scroll-reveal-enabled .scroll-reading-marker{display:none}body.scroll-reveal-enabled .scroll-soft-mask{height:56px;opacity:.18}body.scroll-reveal-enabled .scroll-soft-mask.bottom{height:92px;opacity:.14}body.scroll-reveal-enabled .brief-body{gap:10px!important}body.scroll-reveal-enabled .story-row{opacity:1!important}body.scroll-reveal-enabled #briefs::before,body.scroll-reveal-enabled #matrix::before{left:-12px;right:-12px;height:64px;top:-24px}}
+      body.scroll-reveal-enabled #briefs::before,body.scroll-reveal-enabled #matrix::before{content:"";position:absolute;left:-24px;right:-24px;top:-46px;height:126px;pointer-events:none;background:linear-gradient(180deg,rgba(243,234,216,0),rgba(243,234,216,.80) 44%,rgba(243,234,216,0));filter:blur(10px);z-index:-1}
+      body.scroll-reveal-enabled #matrix{margin-top:54px}
+      body[data-theme="night"].scroll-reveal-enabled .scroll-soft-mask{background:linear-gradient(180deg,rgba(22,19,15,.98),rgba(22,19,15,.64) 42%,rgba(22,19,15,0));opacity:.38}
+      body[data-theme="night"].scroll-reveal-enabled .scroll-soft-mask.bottom{background:linear-gradient(0deg,rgba(22,19,15,.98),rgba(22,19,15,.66) 38%,rgba(22,19,15,0));opacity:.30}
+      body[data-theme="night"].scroll-reveal-enabled #briefs::before,body[data-theme="night"].scroll-reveal-enabled #matrix::before{background:linear-gradient(180deg,rgba(22,19,15,0),rgba(22,19,15,.76) 44%,rgba(22,19,15,0))}
+      @media(max-width:759px){body.scroll-reveal-enabled .scroll-reading-marker{display:none}body.scroll-reveal-enabled .scroll-soft-mask{height:72px;opacity:.30;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}body.scroll-reveal-enabled .scroll-soft-mask.bottom{height:118px;opacity:.26;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}body.scroll-reveal-enabled .brief-body{gap:10px!important}body.scroll-reveal-enabled .story-row{opacity:1!important}body.scroll-reveal-enabled #briefs::before,body.scroll-reveal-enabled #matrix::before{left:-16px;right:-16px;height:86px;top:-32px;filter:blur(8px)}}
       @media(prefers-reduced-motion:reduce){body.scroll-reveal-enabled .scroll-reading-marker,body.scroll-reveal-enabled .scroll-soft-mask{display:none!important}body.scroll-reveal-enabled .brief-body{max-height:none!important;opacity:1!important;transform:none!important;padding-top:12px!important}body.scroll-reveal-enabled .story-row{opacity:1!important}}
     `;
     document.head.appendChild(style);
@@ -174,13 +174,13 @@
         const dd=s.targetDim-s.dim;
         const df=s.targetFocus-s.focus;
         const openSpeed=0.070+velocity*0.030;
-        const closeSpeed=0.038+velocity*0.018;
+        const closeSpeed=0.022+velocity*0.008;
         const dimSpeed=0.080+velocity*0.025;
         const focusSpeed=0.090+velocity*0.020;
         s.current += dp*(dp>=0?openSpeed:closeSpeed);
         s.dim += dd*dimSpeed;
         s.focus += df*focusSpeed;
-        if(Math.abs(dp)<0.0025) s.current=s.target; else moving=true;
+        if(Math.abs(dp)<0.0012) s.current=s.target; else moving=true;
         if(Math.abs(dd)<0.0025) s.dim=s.targetDim; else moving=true;
         if(Math.abs(df)<0.0025) s.focus=s.targetFocus; else moving=true;
         renderCard(card,s);
