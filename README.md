@@ -1,5 +1,12 @@
 # Good Morning Automation
 
+<p align="center">
+  <a href="https://github.com/huxiaoyi-ovo/hello/stargazers"><img src="https://img.shields.io/github/stars/huxiaoyi-ovo/hello?style=flat-square&logo=github" alt="GitHub stars" /></a>
+  <a href="https://github.com/huxiaoyi-ovo/hello/forks"><img src="https://img.shields.io/github/forks/huxiaoyi-ovo/hello?style=flat-square&logo=github" alt="GitHub forks" /></a>
+  <a href="https://github.com/huxiaoyi-ovo/hello/issues"><img src="https://img.shields.io/github/issues/huxiaoyi-ovo/hello?style=flat-square" alt="GitHub issues" /></a>
+  <img src="https://img.shields.io/github/last-commit/huxiaoyi-ovo/hello?style=flat-square" alt="Last commit" />
+</p>
+
 This repository contains a GitHub Actions cloud automation that sends `早安` every morning at 6:00.
 
 ## How it works
@@ -19,3 +26,9 @@ This repository contains a GitHub Actions cloud automation that sends `早安` e
 3. Optional: go to **Variables** and add `GOOD_MORNING_MESSAGE` to customize the message.
 
 If `GOOD_MORNING_WEBHOOK_URL` is not set, the workflow logs the message it would send and exits successfully.
+
+## Contributors
+
+<a href="https://github.com/huxiaoyi-ovo/hello/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=huxiaoyi-ovo/hello" alt="Contributors" />
+</a>
